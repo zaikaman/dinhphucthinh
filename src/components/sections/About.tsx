@@ -110,7 +110,7 @@ export default function About() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <p>Computer Science Major</p>
+              <p>Software Engineering Major</p>
               <p>TOEIC Score: <span className="text-green-400 font-semibold">960</span></p>
             </motion.div>
           </div>
