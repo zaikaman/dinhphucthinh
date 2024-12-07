@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,13 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const menuItems = [
+    { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#contact', label: 'Contact' },
+  ]
 
   return (
     <motion.nav 
@@ -33,19 +42,17 @@ export default function Navbar() {
             DPT
           </Link>
 
-          <div className="flex items-center gap-8">
-            <Link href="#about" className="text-gray-300 hover:text-white transition-colors">
-              About
-            </Link>
-            <Link href="#projects" className="text-gray-300 hover:text-white transition-colors">
-              Projects
-            </Link>
-            <Link href="#skills" className="text-gray-300 hover:text-white transition-colors">
-              Skills
-            </Link>
-            <Link href="#contact" className="text-gray-300 hover:text-white transition-colors">
-              Contact
-            </Link>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            {menuItems.map(item => (
+              <Link 
+                key={item.label}
+                href={item.href} 
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
             <a 
               href="/DinhPhucThinhResume.pdf" 
               target="_blank"
@@ -55,8 +62,50 @@ export default function Navbar() {
               Resume
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-gray-300 hover:text-white"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-black/95 backdrop-blur-md"
+          >
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              {menuItems.map(item => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-gray-300 hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <a 
+                href="/DinhPhucThinhResume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center py-2 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white hover:opacity-90 transition-opacity"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Resume
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   )
 }
