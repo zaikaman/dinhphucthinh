@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const skills = {
-  'Lập Trình Web': [
+  'Lập Trình Front-end': [
     { name: "React", level: 90 },
     { name: "Next.js", level: 85 },
     { name: "TypeScript", level: 85 },
