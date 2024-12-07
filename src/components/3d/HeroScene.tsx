@@ -7,23 +7,32 @@ import * as random from 'maath/random'
 import { Points as ThreePoints } from 'three'
 
 export default function HeroScene({ count = 5000 }) {
-  const points = useMemo(() => {
-    const arr = random.inSphere(new Float32Array(count * 3), { radius: 20 })
-    return Float32Array.from(arr)
+  const points = useRef<ThreePoints>(null!)
+
+  const positions = useMemo(() => {
+    const arr = new Float32Array(count * 3)
+    for (let i = 0; i < count; i++) {
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.acos((Math.random() * 2) - 1)
+      const r = 20 * Math.cbrt(Math.random())
+
+      arr[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
+      arr[i * 3 + 2] = r * Math.cos(phi)
+    }
+    return arr
   }, [count])
 
-  const ref = useRef<ThreePoints>(null!)
-
   useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x += delta * 0.1
-      ref.current.rotation.y += delta * 0.05
+    if (points.current) {
+      points.current.rotation.x += delta * 0.1
+      points.current.rotation.y += delta * 0.05
     }
   })
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={points} stride={3}>
+      <Points ref={points} positions={positions} stride={3}>
         <PointMaterial
           transparent
           color="#4ade80"
