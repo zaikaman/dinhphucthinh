@@ -95,7 +95,7 @@ export default function About() {
           </div>
 
           {/* Education */}
-          <div className="space-y-4">
+          <div className="space-y-4 relative z-10">
             <motion.h3 
               className="text-3xl font-semibold text-green-400"
               initial={{ opacity: 0 }}
