@@ -1,118 +1,101 @@
 'use client'
 
+import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars } from '@react-three/drei'
-import { useEffect, useRef, useState } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import About from '@/components/sections/About'
 import Projects from '@/components/sections/Projects'
 import Skills from '@/components/sections/Skills'
 import Contact from '@/components/sections/Contact'
-
-gsap.registerPlugin(ScrollTrigger)
+import HeroScene from '@/components/3d/HeroScene'
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY
-      if (offset > 100) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    if (heroRef.current) {
-      gsap.fromTo(
-        heroRef.current.children,
-        {
-          opacity: 0,
-          y: 100,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.2,
-          ease: "power4.out"
-        }
-      )
-    }
-
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <div className="bg-black text-white">
+    <>
       <Navbar />
-      <main className="relative">
-        <section className="min-h-screen flex flex-col items-center justify-center p-8 relative overflow-hidden">
-          <div 
-            ref={heroRef} 
-            className="z-10 max-w-5xl w-full text-center space-y-6 relative"
-            style={{
-              transform: scrolled ? 'translateY(-50px)' : 'none',
-              opacity: scrolled ? 0.5 : 1,
-              transition: 'all 0.5s ease-in-out'
-            }}
+      
+      {/* Hero Section */}
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        {/* 3D Background - Now positioned behind content */}
+        <div className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+          <Canvas camera={{ position: [0, 0, 1] }}>
+            <Suspense fallback={null}>
+              <HeroScene />
+            </Suspense>
+          </Canvas>
+        </div>
+
+        {/* Content - Now with higher z-index */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center pointer-events-auto">
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-7xl sm:text-8xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
               Đinh Phúc Thịnh
-            </h1>
-            <p className="text-3xl sm:text-4xl mb-4 text-gray-300">
-              AI, Web & Mobile Developer
-            </p>
-            <p className="text-2xl mb-8 text-green-400 font-semibold">
-              TOEIC 960
-            </p>
-            <div className="flex justify-center space-x-6">
-              <a 
-                href="#projects"
-                className="px-8 py-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-full text-white font-bold hover:scale-105 transition-all"
-              >
-                View Projects
-              </a>
-              <a 
-                href="#contact"
-                className="px-8 py-3 border-2 border-green-400 rounded-full text-green-400 font-bold hover:bg-green-400 hover:text-black transition-all"
-              >
-                Contact Me
-              </a>
+            </span>
+          </motion.h1>
+          
+          <motion.p
+            className="mt-6 text-xl md:text-2xl text-gray-300 max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            AI, Web & Mobile Developer
+          </motion.p>
+
+          <motion.div
+            className="mt-10 flex flex-wrap gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <a
+              href="#projects"
+              className="relative z-20 px-8 py-3 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-black font-medium hover:from-green-500 hover:to-blue-600 transition-all duration-300"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="relative z-20 px-8 py-3 rounded-full border border-green-400/20 text-white font-medium hover:bg-green-400/10 transition-all duration-300"
+            >
+              Contact Me
+            </a>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            className="absolute bottom-8 left-[51%] transform -translate-x-1/2 z-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
+            <div className="w-[30px] h-[50px] rounded-full border-2 border-green-400 flex justify-center p-2">
+              <motion.div
+                className="w-1.5 h-1.5 rounded-full bg-green-400"
+                animate={{
+                  y: [0, 15, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+              />
             </div>
-          </div>
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="fixed inset-0 -z-10">
-            <Canvas camera={{ position: [0, 0, 5] }}>
-              <OrbitControls 
-                enableZoom={false}
-                enablePan={false}
-                enableRotate={false}
-              />
-              <Stars 
-                radius={100} 
-                depth={50} 
-                count={5000} 
-                factor={4} 
-                saturation={0} 
-                fade 
-                speed={1}
-              />
-            </Canvas>
-          </div>
-        </section>
-
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-    </div>
+      <About />
+      <Projects />
+      <Skills />
+      <Contact />
+    </>
   )
 }
