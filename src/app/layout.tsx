@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import CustomCursor from '@/components/CustomCursor'
 
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ['latin'],
@@ -37,13 +38,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className="!scroll-smooth">
-      <body className={`${spaceGrotesk.className} bg-black text-white antialiased`}>
+      <body className={`${spaceGrotesk.className} cursor-none bg-black text-white antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >
+          <CustomCursor />
           <main className="flex min-h-screen flex-col">
             {children}
           </main>

@@ -182,3 +182,23 @@ section {
     font-size: 1rem !important;
   }
 }
+
+/* Hide default cursor on all clickable elements */
+a, 
+button,
+[role="button"],
+select,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+[onclick],
+[tabindex="0"] {
+  cursor: none !important;
+}
+
+/* Hide cursor on hover states */
+*:hover {
+  cursor: none;
+}
