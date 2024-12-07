@@ -75,7 +75,7 @@ export default function About() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Xin chào! Tôi là Đinh Phúc Thịnh, một người đa tài với niềm đam mê về công nghệ, nghệ thuật và giáo dục. 
+            Xin chào! Tôi là Đinh Phúc Thịnh, một người có niềm đam mê với công nghệ, nghệ thuật và giáo dục. 
             Ngoài việc là một lập trình viên chuyên về AI, Web và Mobile, tôi còn là một kỳ thủ cờ vua, 
             người chơi nhạc và từng là giáo viên tiếng Anh.
           </motion.p>
