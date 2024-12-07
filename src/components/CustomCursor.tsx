@@ -10,9 +10,11 @@ export default function CustomCursor() {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY })
+      // Directly update position without any delay
+      requestAnimationFrame(() => {
+        setPosition({ x: e.clientX, y: e.clientY })
+      })
       
-      // Check if hovering over clickable element
       const target = e.target as HTMLElement
       setIsPointer(
         window.getComputedStyle(target).cursor === 'pointer' ||
@@ -48,10 +50,9 @@ export default function CustomCursor() {
           scale: isPointer ? 1.5 : 1,
         }}
         transition={{ 
-          type: "spring", 
-          stiffness: 500, 
-          damping: 28,
-          mass: 0.5 
+          type: "tween",
+          duration: 0,
+          ease: "linear"
         }}
       />
       
@@ -64,10 +65,9 @@ export default function CustomCursor() {
           scale: isPointer ? 1.5 : 1,
         }}
         transition={{ 
-          type: "spring", 
-          stiffness: 250, 
-          damping: 20,
-          mass: 0.8
+          type: "tween",
+          duration: 0.1,
+          ease: "linear"
         }}
       />
 
@@ -80,10 +80,9 @@ export default function CustomCursor() {
           scale: isPointer ? 1.2 : 1,
         }}
         transition={{ 
-          type: "spring", 
-          stiffness: 150, 
-          damping: 15,
-          mass: 1
+          type: "tween",
+          duration: 0.15,
+          ease: "linear"
         }}
       />
     </>
