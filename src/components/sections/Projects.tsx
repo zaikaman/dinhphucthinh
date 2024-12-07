@@ -6,14 +6,14 @@ import Project3DCard from '../Project3DCard'
 const projects = [
   {
     title: "Kien Vocal",
-    description: "Nền tảng học thanh nhạc toàn diện với công nghệ AI phân tích và đưa ra phản hồi, cùng lộ trình học tập cá nhân hóa.",
+    description: "Nền tảng học thanh nhạc toàn diện với sự hợp tác của giảng viên Đinh Trung Kiên",
     image: "/kienvocal.png",
     demoLink: "https://kienvocal.com/",
     tags: ["Next.js", "React", "TensorFlow", "WebAudio API"]
   },
   {
     title: "Airdrop Killers",
-    description: "Nền tảng blockchain để theo dõi và tham gia các chương trình airdrop tiền điện tử.",
+    description: "Nền tảng blockchain để mua các công cụ và tham gia các chương trình airdrop tiền điện tử.",
     image: "/airdropkillers.png",
     demoLink: "https://airdrop-killers.vercel.app/",
     tags: ["React", "Web3.js", "Ethereum", "Tailwind CSS"]
