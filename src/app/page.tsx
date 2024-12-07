@@ -67,28 +67,6 @@ export default function Home() {
               Contact Me
             </a>
           </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            className="absolute bottom-8 left-[51%] transform -translate-x-1/2 z-20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            <div className="w-[30px] h-[50px] rounded-full border-2 border-green-400 flex justify-center p-2">
-              <motion.div
-                className="w-1.5 h-1.5 rounded-full bg-green-400"
-                animate={{
-                  y: [0, 15, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              />
-            </div>
-          </motion.div>
         </div>
       </section>
 
