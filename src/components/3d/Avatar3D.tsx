@@ -1,35 +1,48 @@
 'use client'
 
-import { useRef } from 'react'
-import { useLoader, useFrame } from '@react-three/fiber'
-import { TextureLoader, Mesh, DoubleSide } from 'three'
+import { useRef, useEffect } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { useGLTF, useAnimations } from '@react-three/drei'
+import { Group } from 'three'
 
-export default function Avatar3D({ imageUrl }: { imageUrl: string }) {
-  const meshRef = useRef<Mesh>(null!)
+export default function Avatar3D() {
+  const group = useRef<Group>(null!)
+  
+  // Load the 3D model
+  const { scene, animations } = useGLTF('/models/avatar.glb')
+  const { actions } = useAnimations(animations, scene)
 
-  // Load texture directly
-  const texture = useLoader(TextureLoader, imageUrl)
+  // Play idle animation on load
+  useEffect(() => {
+    if (actions.idle) {
+      actions.idle.play()
+    }
+  }, [actions])
 
   // Animate
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.01
+    if (group.current) {
+      // Smooth follow mouse
+      const mouse = {
+        x: (state.mouse.x * Math.PI) / 10,
+        y: (state.mouse.y * Math.PI) / 10
+      }
+      
+      group.current.rotation.y += (mouse.x - group.current.rotation.y) * 0.05
+      group.current.rotation.x += (mouse.y - group.current.rotation.x) * 0.05
     }
   })
 
-  // Calculate aspect ratio to maintain image proportions
-  const aspectRatio = texture.image ? texture.image.width / texture.image.height : 1
-  const width = 4 // Base width
-  const height = width / aspectRatio
-
   return (
-    <mesh ref={meshRef} scale={[width, height, 1]}>
-      <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial 
-        map={texture} 
-        transparent={true}
-        side={DoubleSide}
+    <group ref={group}>
+      <primitive 
+        object={scene} 
+        scale={2}
+        position={[0, 0, 0]}  
       />
-    </mesh>
+    </group>
   )
 }
+
+// Pre-load the model
+useGLTF.preload('/models/avatar.glb')
