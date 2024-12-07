@@ -38,9 +38,9 @@ export default function About() {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2 h-[500px]"
+          className="w-full md:w-1/2 h-[700px]"
         >
-          <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
+          <Canvas camera={{ position: [0, 0, 6], fov: 40 }}>
             <ambientLight intensity={0.8} />
             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
             <pointLight position={[-10, -10, -10]} intensity={0.5} />
@@ -49,7 +49,7 @@ export default function About() {
               minPolarAngle={Math.PI / 2.5}
               maxPolarAngle={Math.PI / 1.5}
             />
-            <Avatar3D />
+            <Avatar3D scale={1.8} />
           </Canvas>
         </motion.div>
 

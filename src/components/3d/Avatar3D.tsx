@@ -5,7 +5,11 @@ import { useFrame } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { Group } from 'three'
 
-export default function Avatar3D() {
+interface Avatar3DProps {
+  scale?: number
+}
+
+export default function Avatar3D({ scale = 2 }: Avatar3DProps) {
   const group = useRef<Group>(null!)
   
   // Load the 3D model
@@ -37,7 +41,7 @@ export default function Avatar3D() {
     <group ref={group}>
       <primitive 
         object={scene} 
-        scale={2}
+        scale={scale}
         position={[0, 0, 0]}  
       />
     </group>
