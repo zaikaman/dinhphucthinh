@@ -18,10 +18,10 @@ export default function Navbar() {
   }, [])
 
   const menuItems = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#about', label: 'Về Tôi' },
+    { href: '#projects', label: 'Dự Án' },
+    { href: '#skills', label: 'Kỹ Năng' },
+    { href: '#contact', label: 'Liên Hệ' },
   ]
 
   return (
@@ -59,7 +59,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white hover:opacity-90 transition-opacity"
             >
-              Resume
+              Hồ Sơ
             </a>
           </div>
 
@@ -100,7 +100,7 @@ export default function Navbar() {
                 className="text-center py-2 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white hover:opacity-90 transition-opacity"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Resume
+                Hồ Sơ
               </a>
             </div>
           </motion.div>

@@ -10,14 +10,14 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'Đinh Phúc Thịnh - AI, Web & Mobile Developer',
-  description: 'Personal portfolio of Đinh Phúc Thịnh, showcasing expertise in AI, Web, and Mobile development. TOEIC 960.',
+  title: 'Đinh Phúc Thịnh - Lập Trình Viên AI, Web & Mobile',
+  description: 'Portfolio của Đinh Phúc Thịnh, chuyên gia về AI, Phát triển Web và Ứng dụng Di động. TOEIC 960.',
   keywords: [
     'Đinh Phúc Thịnh',
-    'AI Developer',
-    'Web Developer',
-    'Mobile Developer',
-    'Full Stack Developer',
+    'Lập Trình Viên AI',
+    'Lập Trình Web',
+    'Lập Trình Mobile',
+    'Lập Trình Full Stack',
     'Portfolio',
     'TOEIC 960'
   ],
@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="!scroll-smooth">
+    <html lang="vi" suppressHydrationWarning className="!scroll-smooth">
       <body className={`${spaceGrotesk.className} cursor-none bg-black text-white antialiased`}>
         <ThemeProvider
           attribute="class"

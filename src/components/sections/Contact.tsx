@@ -78,12 +78,12 @@ export default function Contact() {
       
       <div ref={contentRef} className="max-w-4xl w-full text-center relative z-10 space-y-8">
         <h2 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-          Let's Connect
+          Kết Nối Với Tôi
         </h2>
         
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-          Feel free to reach out for collaborations or just a friendly hello. 
-          I'm always open to discussing new projects and opportunities.
+          Hãy liên hệ với tôi để thảo luận về các dự án hoặc chỉ đơn giản là trò chuyện. 
+          Tôi luôn sẵn sàng lắng nghe và chia sẻ về những cơ hội hợp tác mới.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">

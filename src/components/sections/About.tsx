@@ -4,8 +4,28 @@ import { motion } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import Avatar3D from '../3d/Avatar3D'
+import { GiChessKing, GiGuitar, GiMicrophone } from 'react-icons/gi'
+import { FaChalkboardTeacher, FaTrophy, FaMedal } from 'react-icons/fa'
 
 export default function About() {
+  const achievements = [
+    {
+      title: "Cờ Vua & Cờ Tướng",
+      icon: GiChessKing,
+      details: "Giải Ba Đồng Đội Cờ Vua, Cờ Tướng Thành phố Hồ Chí Minh"
+    },
+    {
+      title: "Tiếng Anh",
+      icon: FaChalkboardTeacher,
+      details: "Giáo viên tiếng Anh (1 năm kinh nghiệm), Giải Ba HSG Tiếng Anh cấp Thành phố, Huy chương Bạc Olympic 30/4"
+    },
+    {
+      title: "Âm Nhạc",
+      icon: GiMicrophone,
+      details: "Rapper, Ca sĩ và Guitarist không chuyên"
+    }
+  ]
+
   return (
     <section id="about" className="min-h-screen w-full relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Background effects */}
@@ -46,7 +66,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            About Me
+            Về Tôi
           </motion.h2>
 
           <motion.p 
@@ -55,41 +75,73 @@ export default function About() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Hi! I'm Đinh Phúc Thịnh, a passionate developer with expertise in AI, Web, and Mobile development. 
-            I love creating innovative solutions and bringing ideas to life through code.
+            Xin chào! Tôi là Đinh Phúc Thịnh, một người đa tài với niềm đam mê về công nghệ, nghệ thuật và giáo dục. 
+            Ngoài việc là một lập trình viên chuyên về AI, Web và Mobile, tôi còn là một kỳ thủ cờ vua, 
+            người chơi nhạc và từng là giáo viên tiếng Anh.
           </motion.p>
 
-          {/* Skills */}
-          <div className="space-y-4">
+          {/* Achievements & Talents */}
+          <div className="space-y-6">
             <motion.h3 
               className="text-3xl font-semibold text-green-400"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              Skills
+              Thành Tích & Tài Năng
+            </motion.h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {achievements.map((achievement, index) => (
+                <motion.div
+                  key={achievement.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  className="p-4 rounded-lg bg-gray-800/50 backdrop-blur-sm hover:bg-gray-800/70 transition-colors group"
+                >
+                  <div className="flex items-start gap-3">
+                    <achievement.icon className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform" />
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">{achievement.title}</h4>
+                      <p className="text-gray-400 text-sm">{achievement.details}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Technical Skills */}
+          <div className="space-y-4">
+            <motion.h3 
+              className="text-3xl font-semibold text-green-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              Kỹ Năng Chuyên Môn
             </motion.h3>
             <motion.ul 
               className="space-y-2 text-gray-300"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.6 }}
             >
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                Artificial Intelligence & Machine Learning
+                Trí Tuệ Nhân Tạo & Học Máy
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                Full Stack Web Development
+                Phát Triển Web Full Stack
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                Mobile App Development
+                Phát Triển Ứng Dụng Di Động
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                UI/UX Design
+                Thiết Kế UI/UX
               </li>
             </motion.ul>
           </div>
@@ -102,7 +154,7 @@ export default function About() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              Education
+              Học Vấn & Chứng Chỉ
             </motion.h3>
             <motion.div 
               className="space-y-2 text-gray-300"
@@ -110,8 +162,16 @@ export default function About() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <p>Software Engineering Major</p>
-              <p>TOEIC Score: <span className="text-green-400 font-semibold">960</span></p>
+              <p>Chuyên ngành Kỹ thuật Phần mềm</p>
+              <p>Điểm TOEIC: <span className="text-green-400 font-semibold">960</span></p>
+              <div className="flex items-center gap-2 text-green-400">
+                <FaMedal className="w-5 h-5" />
+                <span>Huy chương Bạc - Olympic Tiếng Anh 30/4</span>
+              </div>
+              <div className="flex items-center gap-2 text-green-400">
+                <FaTrophy className="w-5 h-5" />
+                <span>Giải Ba - HSG Tiếng Anh cấp Thành phố</span>
+              </div>
             </motion.div>
           </div>
         </motion.div>
