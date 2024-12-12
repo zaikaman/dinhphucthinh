@@ -54,33 +54,46 @@ export default function CustomCursor() {
     <>
       {/* Main cursor */}
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-green-400 rounded-full mix-blend-difference pointer-events-none z-[100] hidden md:block"
+        className="fixed top-0 left-0 w-4 h-4 bg-green-400 rounded-full mix-blend-difference pointer-events-none z-[100]"
         animate={{
           x: position.x - 8,
           y: position.y - 8,
           scale: isPointer ? 1.5 : 1,
         }}
-        transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.5
+        transition={{ 
+          type: "tween",
+          duration: 0,
+          ease: "linear"
         }}
       />
-
-      {/* Cursor trail */}
-      <motion.div 
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-green-400 rounded-full mix-blend-difference pointer-events-none z-[99] hidden md:block"
+      
+      {/* Trail effect */}
+      <motion.div
+        className="fixed top-0 left-0 w-8 h-8 border border-green-400 rounded-full mix-blend-difference pointer-events-none z-[100]"
         animate={{
           x: position.x - 16,
           y: position.y - 16,
           scale: isPointer ? 1.5 : 1,
         }}
-        transition={{
-          type: "spring",
-          stiffness: 250,
-          damping: 24,
-          mass: 0.8
+        transition={{ 
+          type: "tween",
+          duration: 0.1,
+          ease: "linear"
+        }}
+      />
+
+      {/* Glow effect */}
+      <motion.div
+        className="fixed top-0 left-0 w-24 h-24 bg-green-400/20 rounded-full blur-xl pointer-events-none z-[99]"
+        animate={{
+          x: position.x - 48,
+          y: position.y - 48,
+          scale: isPointer ? 1.2 : 1,
+        }}
+        transition={{ 
+          type: "tween",
+          duration: 0.15,
+          ease: "linear"
         }}
       />
     </>
