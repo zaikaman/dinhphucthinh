@@ -28,18 +28,34 @@ export default function About() {
 
   return (
     <section id="about" className="min-h-screen w-full relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
+      {/* Enhanced Background effects */}
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16 animate-[pulse_4s_ease-in-out_infinite]" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
       
+      {/* Animated particles */}
+      <div className="absolute inset-0">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute h-1 w-1 bg-blue-500/30 rounded-full"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animation: `float ${Math.random() * 10 + 5}s linear infinite`,
+            }}
+          />
+        ))}
+      </div>
+      
       <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
-        {/* 3D Model */}
+        {/* Enhanced 3D Model Container */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2 h-[700px] relative z-10"
+          className="w-full md:w-1/2 h-[700px] relative z-10 group"
         >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <Canvas camera={{ position: [0, 0, 6], fov: 40 }}>
             <ambientLight intensity={0.8} />
             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
@@ -80,36 +96,26 @@ export default function About() {
             người chơi nhạc và từng là giáo viên tiếng Anh.
           </motion.p>
 
-          {/* Achievements & Talents */}
-          <div className="space-y-6">
-            <motion.h3 
-              className="text-3xl font-semibold text-green-400"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              Thành Tích & Tài Năng
-            </motion.h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={achievement.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + index * 0.1 }}
-                  className="p-4 rounded-lg bg-gray-800/50 backdrop-blur-sm hover:bg-gray-800/70 transition-colors group"
-                >
-                  <div className="flex items-start gap-3">
-                    <achievement.icon className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <h4 className="text-white font-semibold mb-1">{achievement.title}</h4>
-                      <p className="text-gray-100 text-sm">{achievement.details}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Enhanced Achievement Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            {achievements.map((achievement, index) => (
+              <motion.div
+                key={achievement.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ scale: 1.05 }}
+                className="p-6 rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 hover:border-gray-500/30 transition-all duration-300"
+              >
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 mb-4">
+                  <achievement.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  {achievement.title}
+                </h3>
+                <p className="text-gray-400">{achievement.details}</p>
+              </motion.div>
+            ))}
           </div>
 
           {/* Technical Skills */}
