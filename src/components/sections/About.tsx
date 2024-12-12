@@ -38,7 +38,7 @@ export default function About() {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2 h-[700px]"
+          className="w-full md:w-1/2 h-[700px] relative z-10"
         >
           <Canvas camera={{ position: [0, 0, 6], fov: 40 }}>
             <ambientLight intensity={0.8} />
@@ -58,7 +58,7 @@ export default function About() {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2 space-y-8"
+          className="w-full md:w-1/2 space-y-8 relative"
         >
           <motion.h2 
             className="text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"
@@ -70,7 +70,7 @@ export default function About() {
           </motion.h2>
 
           <motion.p 
-            className="text-gray-300 text-lg leading-relaxed"
+            className="text-gray-100 text-lg leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -86,6 +86,7 @@ export default function About() {
               className="text-3xl font-semibold text-green-400"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
               Thành Tích & Tài Năng
@@ -103,7 +104,7 @@ export default function About() {
                     <achievement.icon className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform" />
                     <div>
                       <h4 className="text-white font-semibold mb-1">{achievement.title}</h4>
-                      <p className="text-gray-400 text-sm">{achievement.details}</p>
+                      <p className="text-gray-100 text-sm">{achievement.details}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -112,36 +113,38 @@ export default function About() {
           </div>
 
           {/* Technical Skills */}
-          <div className="space-y-4">
+          <div className="space-y-4 relative z-20">
             <motion.h3 
               className="text-3xl font-semibold text-green-400"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
               Kỹ Năng Chuyên Môn
             </motion.h3>
             <motion.ul 
-              className="space-y-2 text-gray-300"
+              className="space-y-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.6 }}
             >
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                Trí Tuệ Nhân Tạo & Học Máy
+                <span className="text-white">Trí Tuệ Nhân Tạo & Học Máy</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                Phát Triển Web Full Stack
+                <span className="text-white">Phát Triển Web Full Stack</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                Phát Triển Ứng Dụng Di Động
+                <span className="text-white">Phát Triển Ứng Dụng Di Động</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                Thiết Kế UI/UX
+                <span className="text-white">Thiết Kế UI/UX</span>
               </li>
             </motion.ul>
           </div>
@@ -152,12 +155,13 @@ export default function About() {
               className="text-3xl font-semibold text-green-400"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
               Học Vấn & Chứng Chỉ
             </motion.h3>
             <motion.div 
-              className="space-y-2 text-gray-300"
+              className="space-y-2 text-gray-100"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
