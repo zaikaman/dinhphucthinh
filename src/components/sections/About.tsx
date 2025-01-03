@@ -10,19 +10,19 @@ import { FaChalkboardTeacher, FaTrophy, FaMedal } from 'react-icons/fa'
 export default function About() {
   const achievements = [
     {
-      title: "Cờ Vua & Cờ Tướng",
+      title: "Chess",
       icon: GiChessKing,
-      details: "Giải Ba Đồng Đội Cờ Vua, Cờ Tướng Thành phố Hồ Chí Minh"
+      details: "Third Place in Team Chess Competition, Ho Chi Minh City"
     },
     {
-      title: "Tiếng Anh",
+      title: "English",
       icon: FaChalkboardTeacher,
-      details: "Giáo viên tiếng Anh (1 năm kinh nghiệm), Giải Ba HSG Tiếng Anh cấp Thành phố, Huy chương Bạc Olympic 30/4"
+      details: "English Teacher (1 year experience), Third Place in City-level English Competition, Silver Medal in April 30th Olympic"
     },
     {
-      title: "Âm Nhạc",
+      title: "Music",
       icon: GiMicrophone,
-      details: "Rapper, Ca sĩ và Guitarist không chuyên"
+      details: "Amateur Rapper, Singer and Guitarist"
     }
   ]
 
@@ -82,7 +82,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Về Tôi
+            About Me
           </motion.h2>
 
           <motion.p 
@@ -91,9 +91,9 @@ export default function About() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Xin chào! Tôi là Đinh Phúc Thịnh, một người có niềm đam mê với công nghệ, nghệ thuật và giáo dục. 
-            Ngoài việc là một lập trình viên chuyên về AI, Web và Mobile, tôi còn là một kỳ thủ cờ vua, 
-            người chơi nhạc và từng là giáo viên tiếng Anh.
+            Hello! I'm Dinh Phuc Thinh, a person passionate about technology, art, and education. 
+            Besides being a developer specializing in AI, Web, and Mobile, I'm also a chess player, 
+            musician, and former English teacher.
           </motion.p>
 
           {/* Enhanced Achievement Cards */}
@@ -127,7 +127,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
-              Kỹ Năng Chuyên Môn
+              Technical Skills
             </motion.h3>
             <motion.ul 
               className="space-y-2"
@@ -138,19 +138,19 @@ export default function About() {
             >
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                <span className="text-white">Trí Tuệ Nhân Tạo & Học Máy</span>
+                <span className="text-white">Artificial Intelligence & Machine Learning</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                <span className="text-white">Phát Triển Web Full Stack</span>
+                <span className="text-white">Full Stack Web Development</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                <span className="text-white">Phát Triển Ứng Dụng Di Động</span>
+                <span className="text-white">Mobile App Development</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">▹</span>
-                <span className="text-white">Thiết Kế UI/UX</span>
+                <span className="text-white">UI/UX Design</span>
               </li>
             </motion.ul>
           </div>
@@ -164,7 +164,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
-              Học Vấn & Chứng Chỉ
+              Education & Certificates
             </motion.h3>
             <motion.div 
               className="space-y-2 text-gray-100"
@@ -172,15 +172,15 @@ export default function About() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <p>Chuyên ngành Kỹ thuật Phần mềm</p>
-              <p>Điểm TOEIC: <span className="text-green-400 font-semibold">960</span></p>
+              <p>Major in Software Engineering</p>
+              <p>TOEIC Score: <span className="text-green-400 font-semibold">960</span></p>
               <div className="flex items-center gap-2 text-green-400">
                 <FaMedal className="w-5 h-5" />
-                <span>Huy chương Bạc - Olympic Tiếng Anh 30/4</span>
+                <span>Silver Medal - April 30th English Olympic</span>
               </div>
               <div className="flex items-center gap-2 text-green-400">
                 <FaTrophy className="w-5 h-5" />
-                <span>Giải Ba - HSG Tiếng Anh cấp Thành phố</span>
+                <span>Third Place - City-level English Competition</span>
               </div>
             </motion.div>
           </div>

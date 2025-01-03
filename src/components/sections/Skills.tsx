@@ -7,27 +7,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const skills = {
-  'Lập Trình Front-end': [
+  'Frontend Development': [
     { name: "React", level: 90 },
     { name: "Next.js", level: 85 },
     { name: "TypeScript", level: 85 },
     { name: "Tailwind CSS", level: 90 },
     { name: "Three.js", level: 75 }
   ],
-  'Lập Trình Back-end': [
+  'Backend Development': [
     { name: "Node.js", level: 85 },
     { name: "Python", level: 80 },
     { name: "MongoDB", level: 80 },
     { name: "PostgreSQL", level: 75 },
     { name: "GraphQL", level: 70 }
   ],
-  'Lập Trình Di Động': [
+  'Mobile Development': [
     { name: "React Native", level: 85 },
     { name: "Flutter", level: 75 },
     { name: "iOS Development", level: 70 },
     { name: "Android Development", level: 70 }
   ],
-  'Trí Tuệ Nhân Tạo': [
+  'Artificial Intelligence': [
     { name: "TensorFlow", level: 80 },
     { name: "PyTorch", level: 75 },
     { name: "Computer Vision", level: 75 },
@@ -73,7 +73,7 @@ export default function Skills() {
       
       <div className="max-w-7xl mx-auto relative z-10">
         <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-          Kỹ Năng & Chuyên Môn
+          Skills & Expertise
         </h2>
         
         <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">

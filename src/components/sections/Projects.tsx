@@ -6,14 +6,28 @@ import Project3DCard from '../Project3DCard'
 const projects = [
   {
     title: "Kien Vocal",
-    description: "Nền tảng học thanh nhạc toàn diện với sự hợp tác của giảng viên Đinh Trung Kiên",
+    description: "Comprehensive vocal learning platform in collaboration with instructor Dinh Trung Kien",
     image: "/kienvocal.png",
     demoLink: "https://kienvocal.com/",
     tags: ["Next.js", "React", "TensorFlow", "WebAudio API"]
   },
   {
+    title: "SkillMatchers",
+    description: "A Tinder-like platform for matching jobs and job seekers, streamlining the job search process.",
+    image: "/skillmatchers.png",
+    demoLink: "https://skillmatchers.vercel.app/",
+    tags: ["Next.js", "Tailwind CSS", "Supabase"]
+  },
+  {
+    title: "Currency.vn",
+    description: "A marketing project website for Van Lang University, featuring an ecommerce website.",
+    image: "/currency.vn.png",
+    demoLink: "https://currency-vn.vercel.app/",
+    tags: ["Next.js", "Tailwind CSS", "Gemini AI"]
+  },
+  {
     title: "Airdrop Killers",
-    description: "Nền tảng blockchain để mua các công cụ và tham gia các chương trình airdrop tiền điện tử.",
+    description: "Blockchain platform for purchasing tools and participating in cryptocurrency airdrop programs.",
     image: "/airdropkillers.png",
     demoLink: "https://airdrop-killers.vercel.app/",
     tags: ["React", "Web3.js", "Ethereum", "Tailwind CSS"]
@@ -54,7 +68,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Dự Án Tiêu Biểu
+            Featured Projects
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -62,7 +76,7 @@ export default function Projects() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-gray-400 text-xl"
           >
-            Khám phá những dự án tôi đã thực hiện
+            Explore the projects I've worked on
           </motion.p>
         </motion.div>
 

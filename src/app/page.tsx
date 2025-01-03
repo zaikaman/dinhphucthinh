@@ -35,7 +35,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-              Đinh Phúc Thịnh
+              Dinh Phuc Thinh
             </span>
           </motion.h1>
           
@@ -45,7 +45,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Lập Trình Viên AI, Web & Mobile
+            AI, Web & Mobile Developer
           </motion.p>
 
           <motion.div
@@ -58,13 +58,13 @@ export default function Home() {
               href="#projects"
               className="relative z-20 px-8 py-3 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-black font-medium hover:from-green-500 hover:to-blue-600 transition-all duration-300"
             >
-              Xem Dự Án
+              View Projects
             </a>
             <a
               href="#contact"
               className="relative z-20 px-8 py-3 rounded-full border border-green-400/20 text-white font-medium hover:bg-green-400/10 transition-all duration-300"
             >
-              Liên Hệ
+              Contact
             </a>
           </motion.div>
         </div>

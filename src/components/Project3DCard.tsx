@@ -99,7 +99,7 @@ export default function Project3DCard({ project }: { project: Project }) {
             className="inline-block px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg hover:opacity-90 transition-opacity"
             style={{ transform: "translateZ(100px)" }}
           >
-            Xem Trang
+            View Page
           </a>
         </div>
       </div>
