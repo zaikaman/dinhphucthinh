@@ -9,6 +9,7 @@ interface Project {
   description: string
   image: string
   demoLink: string
+  sourceLink: string
   tags: string[]
 }
 
@@ -92,15 +93,26 @@ export default function Project3DCard({ project }: { project: Project }) {
             ))}
           </div>
 
-          <a
-            href={project.demoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg hover:opacity-90 transition-opacity"
-            style={{ transform: "translateZ(100px)" }}
-          >
-            View Page
-          </a>
+          <div className="flex gap-3">
+            <a
+              href={project.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg hover:opacity-90 transition-opacity"
+              style={{ transform: "translateZ(100px)" }}
+            >
+              View Page
+            </a>
+            <a
+              href={project.sourceLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-2 bg-gradient-to-r from-purple-400 to-pink-500 text-white rounded-lg hover:opacity-90 transition-opacity"
+              style={{ transform: "translateZ(100px)" }}
+            >
+              Source Code
+            </a>
+          </div>
         </div>
       </div>
 

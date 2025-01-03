@@ -9,6 +9,7 @@ const projects = [
     description: "Comprehensive vocal learning platform in collaboration with instructor Dinh Trung Kien",
     image: "/kienvocal.png",
     demoLink: "https://kienvocal.com/",
+    sourceLink: "https://github.com/zaikaman/WebKienVocal",
     tags: ["Next.js", "React", "TensorFlow", "WebAudio API"]
   },
   {
@@ -16,13 +17,15 @@ const projects = [
     description: "A Tinder-like platform for matching jobs and job seekers, streamlining the job search process.",
     image: "/skillmatchers.png",
     demoLink: "https://skillmatchers.vercel.app/",
+    sourceLink: "https://github.com/zaikaman/SkillMatchers",
     tags: ["Next.js", "Tailwind CSS", "Supabase"]
   },
   {
     title: "Currency.vn",
-    description: "A marketing project website for Van Lang University, featuring an ecommerce website.",
+    description: "A marketing project for Van Lang University, featuring a wallet-selling ecommerce website.",
     image: "/currency.vn.png",
     demoLink: "https://currency-vn.vercel.app/",
+    sourceLink: "https://github.com/zaikaman/currency.vn",
     tags: ["Next.js", "Tailwind CSS", "Gemini AI"]
   },
   {
@@ -30,6 +33,7 @@ const projects = [
     description: "Blockchain platform for purchasing tools and participating in cryptocurrency airdrop programs.",
     image: "/airdropkillers.png",
     demoLink: "https://airdrop-killers.vercel.app/",
+    sourceLink: "https://github.com/zaikaman/AirdropKillers",
     tags: ["React", "Web3.js", "Ethereum", "Tailwind CSS"]
   }
 ]
