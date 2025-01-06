@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { MouseEvent, useRef } from 'react'
 import Image from 'next/image'
 import { translations } from '@/translations'
+import { ExternalLink, Github } from 'lucide-react'
 
 interface Project {
   title: string
@@ -95,24 +96,25 @@ export default function Project3DCard({ project }: { project: Project }) {
             ))}
           </div>
 
-          <div className="flex gap-3">
+          {/* Action buttons positioned at bottom right */}
+          <div className="absolute bottom-4 right-4 flex gap-2" style={{ transform: "translateZ(100px)" }}>
             <a
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg hover:opacity-90 transition-opacity"
-              style={{ transform: "translateZ(100px)" }}
+              className="p-2 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-white hover:opacity-90 transition-all duration-300 group/link"
+              title={t.projects.viewPage}
             >
-              {t.projects.viewPage}
+              <ExternalLink className="w-5 h-5 group-hover/link:scale-110 transition-transform" />
             </a>
             <a
               href={project.sourceLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-gradient-to-r from-purple-400 to-pink-500 text-white rounded-lg hover:opacity-90 transition-opacity"
-              style={{ transform: "translateZ(100px)" }}
+              className="p-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white hover:opacity-90 transition-all duration-300 group/github"
+              title={t.projects.sourceCode}
             >
-              {t.projects.sourceCode}
+              <Github className="w-5 h-5 group-hover/github:scale-110 transition-transform" />
             </a>
           </div>
         </div>
