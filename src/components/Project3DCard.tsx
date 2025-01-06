@@ -96,13 +96,13 @@ export default function Project3DCard({ project }: { project: Project }) {
             ))}
           </div>
 
-          {/* Action buttons positioned at bottom right */}
-          <div className="absolute md:bottom-4 bottom-0 md:right-4 right-0 flex gap-2 md:p-0 p-3 md:bg-transparent bg-black/50 backdrop-blur-sm md:rounded-full rounded-tl-xl" style={{ transform: "translateZ(100px)" }}>
+          <div className="flex gap-3">
             <a
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-white hover:opacity-90 transition-all duration-300 group/link md:scale-100 scale-90"
+              className="p-2 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white hover:opacity-90 transition-all duration-300 group/link"
+              style={{ transform: "translateZ(100px)" }}
               title={t.projects.viewPage}
             >
               <ExternalLink className="w-5 h-5 group-hover/link:scale-110 transition-transform" />
@@ -111,7 +111,8 @@ export default function Project3DCard({ project }: { project: Project }) {
               href={project.sourceLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white hover:opacity-90 transition-all duration-300 group/github md:scale-100 scale-90"
+              className="p-2 rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 text-white hover:opacity-90 transition-all duration-300 group/github"
+              style={{ transform: "translateZ(100px)" }}
               title={t.projects.sourceCode}
             >
               <Github className="w-5 h-5 group-hover/github:scale-110 transition-transform" />
