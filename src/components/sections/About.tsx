@@ -101,6 +101,89 @@ export default function About({ lang }: AboutProps) {
             {t.about.description}
           </motion.p>
 
+          {/* Technical Skills */}
+          <div className="space-y-4 relative z-20">
+            <motion.h3 
+              className="text-3xl font-semibold text-green-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              {lang === 'en' ? 'Technical Skills' : 'Kỹ Năng Chuyên Môn'}
+            </motion.h3>
+            <motion.ul 
+              className="space-y-2"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <li className="flex items-center gap-2">
+                <span className="text-green-400">▹</span>
+                <span className="text-white">
+                  {lang === 'en' ? 'Artificial Intelligence & Machine Learning' : 'Trí Tuệ Nhân Tạo & Học Máy'}
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-400">▹</span>
+                <span className="text-white">
+                  {lang === 'en' ? 'Full Stack Web Development' : 'Phát Triển Web Full Stack'}
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-400">▹</span>
+                <span className="text-white">
+                  {lang === 'en' ? 'Mobile App Development' : 'Phát Triển Ứng Dụng Di Động'}
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-400">▹</span>
+                <span className="text-white">
+                  {lang === 'en' ? 'UI/UX Design' : 'Thiết Kế UI/UX'}
+                </span>
+              </li>
+            </motion.ul>
+          </div>
+
+          {/* Education & Certificates */}
+          <div className="space-y-4 relative z-10">
+            <motion.h3 
+              className="text-3xl font-semibold text-green-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              {lang === 'en' ? 'Education & Certificates' : 'Học Vấn & Chứng Chỉ'}
+            </motion.h3>
+            <motion.div 
+              className="space-y-2 text-gray-100"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <p>{lang === 'en' ? 'Major in Software Engineering' : 'Chuyên ngành Kỹ thuật Phần mềm'}</p>
+              <p>TOEIC Score: <span className="text-green-400 font-semibold">960</span></p>
+              <div className="flex items-center gap-2 text-green-400">
+                <FaMedal className="w-5 h-5" />
+                <span>
+                  {lang === 'en' 
+                    ? 'Silver Medal - April 30th English Olympic' 
+                    : 'Huy chương Bạc - Olympic Tiếng Anh 30/4'}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-green-400">
+                <FaTrophy className="w-5 h-5" />
+                <span>
+                  {lang === 'en'
+                    ? 'Third Place - City-level English Competition'
+                    : 'Giải Ba - Olympic Tiếng Anh cấp Thành phố'}
+                </span>
+              </div>
+            </motion.div>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {achievements.map((achievement, index) => {
               const Icon = achievement.icon
