@@ -17,7 +17,7 @@ const getProjects = (lang: 'en' | 'vi') => [
     image: "/kienvocal.png",
     demoLink: "https://kienvocal.com/",
     sourceLink: "https://github.com/zaikaman/WebKienVocal",
-    tags: ["Next.js", "React", "TensorFlow", "WebAudio API"]
+    tags: ["Next.js", "React", "TensorFlow"]
   },
   {
     title: "SkillMatchers",
@@ -47,7 +47,7 @@ const getProjects = (lang: 'en' | 'vi') => [
     image: "/airdropkillers.png",
     demoLink: "https://airdrop-killers.vercel.app/",
     sourceLink: "https://github.com/zaikaman/AirdropKillers",
-    tags: ["React", "Web3.js", "Ethereum", "Tailwind CSS"]
+    tags: ["React", "Web3.js", "Tailwind CSS"]
   }
 ]
 
