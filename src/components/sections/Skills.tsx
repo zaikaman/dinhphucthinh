@@ -11,39 +11,40 @@ interface SkillsProps {
   lang: string
 }
 
-const skills = {
-  'Frontend Development': [
+const getSkills = (lang: 'en' | 'vi') => ({
+  [lang === 'en' ? 'Frontend Development' : 'Phát triển Frontend']: [
     { name: "React", level: 90 },
     { name: "Next.js", level: 85 },
     { name: "TypeScript", level: 85 },
     { name: "Tailwind CSS", level: 90 },
     { name: "Three.js", level: 75 }
   ],
-  'Backend Development': [
+  [lang === 'en' ? 'Backend Development' : 'Phát triển Backend']: [
     { name: "Node.js", level: 85 },
     { name: "Python", level: 80 },
     { name: "MongoDB", level: 80 },
     { name: "PostgreSQL", level: 75 },
     { name: "GraphQL", level: 70 }
   ],
-  'Mobile Development': [
+  [lang === 'en' ? 'Mobile Development' : 'Phát triển Mobile']: [
     { name: "React Native", level: 85 },
     { name: "Flutter", level: 75 },
     { name: "iOS Development", level: 70 },
     { name: "Android Development", level: 70 }
   ],
-  'Artificial Intelligence': [
+  [lang === 'en' ? 'Artificial Intelligence' : 'Trí tuệ Nhân tạo']: [
     { name: "TensorFlow", level: 80 },
     { name: "PyTorch", level: 75 },
     { name: "Computer Vision", level: 75 },
     { name: "NLP", level: 70 }
   ]
-}
+})
 
 export default function Skills({ lang }: SkillsProps) {
   const t = translations[lang as 'en' | 'vi']
   const sectionRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  const skills = getSkills(lang as 'en' | 'vi')
 
   useEffect(() => {
     if (sectionRef.current && contentRef.current) {
@@ -78,7 +79,7 @@ export default function Skills({ lang }: SkillsProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 z-0" />
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 leading-relaxed py-4">
           {t.skills.title}
         </h2>
         

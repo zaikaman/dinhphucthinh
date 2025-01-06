@@ -8,10 +8,12 @@ interface ProjectsProps {
   lang: string
 }
 
-const projects = [
+const getProjects = (lang: 'en' | 'vi') => [
   {
     title: "Kien Vocal",
-    description: "Comprehensive vocal learning platform in collaboration with instructor Dinh Trung Kien",
+    description: lang === 'en' 
+      ? "Comprehensive vocal learning platform in collaboration with instructor Dinh Trung Kien"
+      : "Nền tảng học thanh nhạc toàn diện hợp tác với giảng viên Đinh Trung Kiên",
     image: "/kienvocal.png",
     demoLink: "https://kienvocal.com/",
     sourceLink: "https://github.com/zaikaman/WebKienVocal",
@@ -19,7 +21,9 @@ const projects = [
   },
   {
     title: "SkillMatchers",
-    description: "A Tinder-like platform for matching jobs and job seekers, streamlining the job search process.",
+    description: lang === 'en'
+      ? "A Tinder-like platform for matching jobs and job seekers, streamlining the job search process."
+      : "Nền tảng kết nối việc làm theo phong cách Tinder, tối ưu hóa quá trình tìm việc.",
     image: "/skillmatchers.png",
     demoLink: "https://skillmatchers.vercel.app/",
     sourceLink: "https://github.com/zaikaman/SkillMatchers",
@@ -27,7 +31,9 @@ const projects = [
   },
   {
     title: "Currency.vn",
-    description: "A marketing project for Van Lang University, featuring a wallet-selling ecommerce website.",
+    description: lang === 'en'
+      ? "A marketing project for Van Lang University, featuring a wallet-selling ecommerce website."
+      : "Dự án marketing cho Đại học Văn Lang, trang thương mại điện tử bán ví.",
     image: "/currency.vn.png",
     demoLink: "https://currency-vn.vercel.app/",
     sourceLink: "https://github.com/zaikaman/currency.vn",
@@ -35,7 +41,9 @@ const projects = [
   },
   {
     title: "Airdrop Killers",
-    description: "Blockchain platform for purchasing tools and participating in cryptocurrency airdrop programs.",
+    description: lang === 'en'
+      ? "Blockchain platform for purchasing tools and participating in cryptocurrency airdrop programs."
+      : "Nền tảng blockchain để mua công cụ và tham gia các chương trình airdrop tiền điện tử.",
     image: "/airdropkillers.png",
     demoLink: "https://airdrop-killers.vercel.app/",
     sourceLink: "https://github.com/zaikaman/AirdropKillers",
@@ -45,6 +53,7 @@ const projects = [
 
 export default function Projects({ lang }: ProjectsProps) {
   const t = translations[lang as 'en' | 'vi']
+  const projects = getProjects(lang as 'en' | 'vi')
 
   return (
     <section id="projects" className="min-h-screen py-20 bg-black relative overflow-hidden">
@@ -71,10 +80,10 @@ export default function Projects({ lang }: ProjectsProps) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <motion.h2 
-            className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-relaxed py-2"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -85,7 +94,7 @@ export default function Projects({ lang }: ProjectsProps) {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-gray-400 text-xl"
+            className="text-xl text-gray-400"
           >
             {t.projects.subtitle}
           </motion.p>

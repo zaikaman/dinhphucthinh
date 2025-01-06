@@ -84,7 +84,7 @@ export default function About({ lang }: AboutProps) {
           className="w-full md:w-1/2 space-y-8 relative"
         >
           <motion.h2 
-            className="text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent leading-relaxed py-4"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
