@@ -97,7 +97,7 @@ export default function Project3DCard({ project }: { project: Project }) {
           </div>
 
           {/* Action buttons positioned at bottom right */}
-          <div className="absolute bottom-4 right-4 flex gap-2 md:p-0 p-2 md:bg-transparent bg-black/50 backdrop-blur-sm rounded-full" style={{ transform: "translateZ(100px)" }}>
+          <div className="absolute md:bottom-4 bottom-0 md:right-4 right-0 flex gap-2 md:p-0 p-3 md:bg-transparent bg-black/50 backdrop-blur-sm md:rounded-full rounded-tl-xl" style={{ transform: "translateZ(100px)" }}>
             <a
               href={project.demoLink}
               target="_blank"
