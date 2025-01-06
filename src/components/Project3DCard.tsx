@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { MouseEvent, useRef } from 'react'
 import Image from 'next/image'
+import { translations } from '@/translations'
 
 interface Project {
   title: string
@@ -11,9 +12,11 @@ interface Project {
   demoLink: string
   sourceLink: string
   tags: string[]
+  lang: string
 }
 
 export default function Project3DCard({ project }: { project: Project }) {
+  const t = translations[project.lang as 'en' | 'vi']
   const cardRef = useRef<HTMLDivElement>(null)
   
   const x = useMotionValue(0)
@@ -25,7 +28,7 @@ export default function Project3DCard({ project }: { project: Project }) {
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"])
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"])
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
     
     const rect = cardRef.current.getBoundingClientRect()
@@ -58,8 +61,7 @@ export default function Project3DCard({ project }: { project: Project }) {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      whileHover={{ scale: 1.02 }}
-      className="relative h-[500px] w-full rounded-xl bg-gradient-to-br from-gray-900 to-black p-8 group cursor-none"
+      className="relative h-96 w-full rounded-xl bg-gradient-to-br from-gray-900 to-black p-8 group cursor-pointer"
     >
       <div 
         style={{ transform: "translateZ(75px)" }} 
@@ -101,7 +103,7 @@ export default function Project3DCard({ project }: { project: Project }) {
               className="inline-block px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg hover:opacity-90 transition-opacity"
               style={{ transform: "translateZ(100px)" }}
             >
-              View Page
+              {t.projects.viewPage}
             </a>
             <a
               href={project.sourceLink}
@@ -110,7 +112,7 @@ export default function Project3DCard({ project }: { project: Project }) {
               className="inline-block px-6 py-2 bg-gradient-to-r from-purple-400 to-pink-500 text-white rounded-lg hover:opacity-90 transition-opacity"
               style={{ transform: "translateZ(100px)" }}
             >
-              Source Code
+              {t.projects.sourceCode}
             </a>
           </div>
         </div>

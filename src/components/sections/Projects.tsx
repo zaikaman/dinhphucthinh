@@ -2,6 +2,11 @@
 
 import { motion } from 'framer-motion'
 import Project3DCard from '../Project3DCard'
+import { translations } from '@/translations'
+
+interface ProjectsProps {
+  lang: string
+}
 
 const projects = [
   {
@@ -38,7 +43,9 @@ const projects = [
   }
 ]
 
-export default function Projects() {
+export default function Projects({ lang }: ProjectsProps) {
+  const t = translations[lang as 'en' | 'vi']
+
   return (
     <section id="projects" className="min-h-screen py-20 bg-black relative overflow-hidden">
       {/* Animated background gradient */}
@@ -72,7 +79,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Featured Projects
+            {t.projects.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -80,7 +87,7 @@ export default function Projects() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-gray-400 text-xl"
           >
-            Explore the projects I've worked on
+            {t.projects.subtitle}
           </motion.p>
         </motion.div>
 
@@ -96,7 +103,7 @@ export default function Projects() {
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-500" />
               <div className="relative">
-                <Project3DCard project={project} />
+                <Project3DCard project={{...project, lang}} />
               </div>
             </motion.div>
           ))}

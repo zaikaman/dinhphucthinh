@@ -6,23 +6,30 @@ import { OrbitControls } from '@react-three/drei'
 import Avatar3D from '../3d/Avatar3D'
 import { GiChessKing, GiGuitar, GiMicrophone } from 'react-icons/gi'
 import { FaChalkboardTeacher, FaTrophy, FaMedal } from 'react-icons/fa'
+import { translations } from '@/translations'
 
-export default function About() {
+interface AboutProps {
+  lang: string
+}
+
+export default function About({ lang }: AboutProps) {
+  const t = translations[lang as 'en' | 'vi']
+
   const achievements = [
     {
-      title: "Chess",
+      title: t.about.achievements.chess.title,
       icon: GiChessKing,
-      details: "Third Place in Team Chess Competition, Ho Chi Minh City"
+      details: t.about.achievements.chess.details
     },
     {
-      title: "English",
+      title: t.about.achievements.english.title,
       icon: FaChalkboardTeacher,
-      details: "English Teacher (1 year experience), Third Place in City-level English Competition, Silver Medal in April 30th Olympic"
+      details: t.about.achievements.english.details
     },
     {
-      title: "Music",
+      title: t.about.achievements.music.title,
       icon: GiMicrophone,
-      details: "Amateur Rapper, Singer and Guitarist"
+      details: t.about.achievements.music.details
     }
   ]
 
@@ -41,7 +48,7 @@ export default function About() {
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              animation: `float ${Math.random() * 10 + 5}s linear infinite`,
+              animation: `float ${Math.random() * 10 + 5}s linear infinite`
             }}
           />
         ))}
@@ -82,7 +89,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            About Me
+            {t.about.title}
           </motion.h2>
 
           <motion.p 
@@ -91,98 +98,26 @@ export default function About() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Hello! I'm Dinh Phuc Thinh, a person passionate about technology, art, and education. 
-            Besides being a developer specializing in AI, Web, and Mobile, I'm also a chess player, 
-            musician, and former English teacher.
+            {t.about.description}
           </motion.p>
 
-          {/* Enhanced Achievement Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={achievement.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                className="p-6 rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 hover:border-gray-500/30 transition-all duration-300"
-              >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 mb-4">
-                  <achievement.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {achievement.title}
-                </h3>
-                <p className="text-gray-400">{achievement.details}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Technical Skills */}
-          <div className="space-y-4 relative z-20">
-            <motion.h3 
-              className="text-3xl font-semibold text-green-400"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              Technical Skills
-            </motion.h3>
-            <motion.ul 
-              className="space-y-2"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
-              <li className="flex items-center gap-2">
-                <span className="text-green-400">▹</span>
-                <span className="text-white">Artificial Intelligence & Machine Learning</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-green-400">▹</span>
-                <span className="text-white">Full Stack Web Development</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-green-400">▹</span>
-                <span className="text-white">Mobile App Development</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-green-400">▹</span>
-                <span className="text-white">UI/UX Design</span>
-              </li>
-            </motion.ul>
-          </div>
-
-          {/* Education */}
-          <div className="space-y-4 relative z-10">
-            <motion.h3 
-              className="text-3xl font-semibold text-green-400"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              Education & Certificates
-            </motion.h3>
-            <motion.div 
-              className="space-y-2 text-gray-100"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-              <p>Major in Software Engineering</p>
-              <p>TOEIC Score: <span className="text-green-400 font-semibold">960</span></p>
-              <div className="flex items-center gap-2 text-green-400">
-                <FaMedal className="w-5 h-5" />
-                <span>Silver Medal - April 30th English Olympic</span>
-              </div>
-              <div className="flex items-center gap-2 text-green-400">
-                <FaTrophy className="w-5 h-5" />
-                <span>Third Place - City-level English Competition</span>
-              </div>
-            </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {achievements.map((achievement, index) => {
+              const Icon = achievement.icon
+              return (
+                <motion.div
+                  key={achievement.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="p-6 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-green-400/50 transition-all group"
+                >
+                  <Icon className="w-8 h-8 text-green-400 mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="text-xl font-semibold text-white mb-2">{achievement.title}</h3>
+                  <p className="text-gray-400">{achievement.details}</p>
+                </motion.div>
+              )
+            })}
           </div>
         </motion.div>
       </div>

@@ -4,10 +4,16 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import LanguageSwitcher from './LanguageSwitcher'
+import { translations } from '@/translations'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const lang = pathname.startsWith('/vi') ? 'vi' : 'en'
+  const t = translations[lang]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,16 +24,16 @@ export default function Navbar() {
   }, [])
 
   const menuItems = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#about', label: t.nav.about },
+    { href: '#projects', label: t.nav.projects },
+    { href: '#skills', label: t.nav.skills },
+    { href: '#contact', label: t.nav.contact },
   ]
 
   return (
     <motion.nav 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 right-0 z-50 py-4 transition-colors ${
+        isScrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -36,7 +42,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link 
-            href="/"
+            href={`/${lang}`}
             className="text-2xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"
           >
             DPT
@@ -59,8 +65,9 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white hover:opacity-90 transition-opacity"
             >
-              Resume
+              {t.nav.resume}
             </a>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,8 +107,11 @@ export default function Navbar() {
                 className="text-center py-2 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white hover:opacity-90 transition-opacity"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Resume
+                {t.nav.resume}
               </a>
+              <div className="py-2">
+                <LanguageSwitcher />
+              </div>
             </div>
           </motion.div>
         )}

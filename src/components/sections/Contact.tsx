@@ -4,8 +4,13 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Github, Twitter, Linkedin, Facebook, Instagram, Mail, ExternalLink } from 'lucide-react'
+import { translations } from '@/translations'
 
 gsap.registerPlugin(ScrollTrigger)
+
+interface ContactProps {
+  lang: string
+}
 
 const socialLinks = [
   {
@@ -40,7 +45,8 @@ const socialLinks = [
   }
 ]
 
-export default function Contact() {
+export default function Contact({ lang }: ContactProps) {
+  const t = translations[lang as 'en' | 'vi']
   const sectionRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -78,12 +84,11 @@ export default function Contact() {
       
       <div ref={contentRef} className="max-w-4xl w-full text-center relative z-10 space-y-8">
         <h2 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-          Connect With Me
+          {t.contact.title}
         </h2>
         
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-          Get in touch with me to discuss projects or just to chat.
-          I'm always ready to listen and share about new collaboration opportunities.
+          {t.contact.description}
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">

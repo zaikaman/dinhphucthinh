@@ -3,8 +3,13 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { translations } from '@/translations'
 
 gsap.registerPlugin(ScrollTrigger)
+
+interface SkillsProps {
+  lang: string
+}
 
 const skills = {
   'Frontend Development': [
@@ -35,7 +40,8 @@ const skills = {
   ]
 }
 
-export default function Skills() {
+export default function Skills({ lang }: SkillsProps) {
+  const t = translations[lang as 'en' | 'vi']
   const sectionRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -73,7 +79,7 @@ export default function Skills() {
       
       <div className="max-w-7xl mx-auto relative z-10">
         <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-          Skills & Expertise
+          {t.skills.title}
         </h2>
         
         <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
