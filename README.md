@@ -2,7 +2,7 @@
 
 Personal portfolio website for **Thinh Dinh**, a software engineer from Ho Chi Minh City, Vietnam.
 
-**Live site:** [zaikaman.github.io](https://dinhphucthinh.vercel.app)
+**Live site:** [dinhphucthinh.vercel.app](https://dinhphucthinh.vercel.app)
 
 ---
 
