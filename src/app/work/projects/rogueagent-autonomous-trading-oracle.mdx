@@ -1,0 +1,96 @@
+---
+title: "RogueAgent - Autonomous Trading Intelligence Swarm"
+publishedAt: "2025-11-15"
+summary: "First place winner at the Agent Arena Hackathon. RogueAgent is a multi-agent crypto intelligence and execution system built for 24/7 analysis, signal generation, and autonomous futures workflows."
+images:
+  - "/images/projects/project-01/rogueagent.jpg"
+  - "/images/projects/project-01/image-01.jpg"
+team:
+  - name: "Thinh Dinh"
+    role: "Software Engineer"
+    avatar: "/images/thinh-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/th%E1%BB%8Bnh-%C4%91inh-aa8727395"
+github: "https://github.com/zaikaman/RogueAgent"
+link: "https://github.com/zaikaman/RogueAgent"
+---
+
+## Context
+
+Manual crypto analysis breaks down under market velocity. Data is fragmented across exchanges, social channels, on-chain activity, and derivatives positioning.
+
+RogueAgent was built as an autonomous swarm architecture that continuously scans, analyzes, scores, and publishes high-conviction opportunities while also supporting automated execution flows.
+
+## Product Scope
+
+- Multi-agent architecture covering scanner, analyzer, writer, publisher, monitor, and futures execution roles.
+- Data fusion from market feeds, social/news context, and on-chain indicators.
+- Bias-first scanning and strict quality gates for signal discipline.
+- Tiered distribution across private and public channels.
+- Hyperliquid futures support for testnet and mainnet execution modes.
+
+## Swarm Architecture
+
+RogueAgent is organized around a coordinated pipeline:
+
+1. Orchestrator
+Schedules runs, prevents overlapping cycles, manages quotas, and routes data to specialist agents.
+
+2. Scanner
+Uses a bias-first methodology (LONG, SHORT, or NEUTRAL) before selecting candidate markets.
+
+3. Analyzer
+Applies technical, sentiment, and context scoring to convert candidates into structured signals.
+
+4. Writer and Publisher
+Transforms outputs into distribution-ready messaging with tiered timing across channels.
+
+5. Signal Monitor
+Tracks active and pending signals, updates status, and triggers TP/SL style lifecycle events.
+
+## Signal Quality Methodology
+
+I designed RogueAgent to reject weak setups by default.
+
+- Bias-first selection to avoid fighting macro direction.
+- Confidence and confluence thresholds for publication.
+- Risk/reward and stop-loss constraints enforced before promotion.
+- Duplicate and recency checks to avoid repetitive low-value output.
+
+The system also includes upgraded chart intelligence paths (including generated chart analysis and multi-timeframe context) to improve decision quality.
+
+## Futures Execution Layer
+
+RogueAgent supports autonomous perpetual futures workflows on Hyperliquid.
+
+- Mainnet mode for live execution and testnet mode for safe iteration.
+- Market and conditional-style entry pathways.
+- Position management with stop-loss and take-profit logic.
+- Signal monitor loop for state transitions and execution lifecycle handling.
+
+This moves the platform from "analysis-only" into a true research-to-execution system.
+
+## ADK-TS and Tooling Strategy
+
+RogueAgent was implemented with ADK-TS patterns for agent construction and structured outputs.
+
+- AgentBuilder pattern for composable specialist agents.
+- Tool-driven integration with price, TA, database, and publishing services.
+- Schema-driven outputs to keep cross-agent communication deterministic.
+
+This architecture was important for stability and for evolving the platform quickly.
+
+## Operator Experience
+
+I also treated observability as a product requirement:
+
+- Dashboard-first real-time visibility into runs, logs, and signals.
+- Query interfaces (including conversational paths) for operational debugging and market exploration.
+- Tier-aware distribution that supports premium and public information flows.
+
+## Impact
+
+RogueAgent proved that a disciplined multi-agent design can produce a practical autonomous intelligence stack for volatile markets without sacrificing risk controls.
+
+## Result
+
+RogueAgent won **first place in the Agent Arena Hackathon** and demonstrated a full-cycle approach from market intelligence to actionable and executable trade workflows.

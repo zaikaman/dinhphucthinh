@@ -1,0 +1,87 @@
+---
+title: "Narrato - AI-Powered Multimedia Storyteller"
+publishedAt: "2025-04-20"
+summary: "First prize winner at Shov's Coding Challenge. Narrato turns one prompt into a complete, illustrated, narrated, and exportable story through a multi-step AI pipeline."
+images:
+  - "/images/projects/project-01/narrato-pic.jpg"
+  - "/images/projects/project-01/image-01.jpg"
+team:
+  - name: "Thinh Dinh"
+    role: "Software Engineer"
+    avatar: "/images/thinh-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/th%E1%BB%8Bnh-%C4%91inh-aa8727395"
+github: "https://github.com/zaikaman/Narrato"
+link: "https://github.com/zaikaman/Narrato"
+---
+
+## Context
+
+Narrato started from a simple question: can one prompt become a complete multimedia book experience instead of just a text completion?
+
+Writers and students often need more than plain text output. They need a coherent story arc, consistent characters, matching visual style, and narration they can share. I built Narrato to convert one idea into a full story package: written content, illustrations, audio narration, and PDF export.
+
+The project was designed and shipped as a full web app, not just a model demo, with authentication, personal story history, a public story library, and streaming progress feedback during long AI jobs.
+
+## Product Scope
+
+- Prompt-to-story generation powered by Gemini.
+- Paragraph-by-paragraph image generation with character and style consistency.
+- AI narration generation for the title and story body.
+- Personal story history and public story browsing.
+- Exportable, illustrated PDF output.
+- Passwordless OTP login flow for a frictionless user experience.
+
+## Architecture and Pipeline
+
+The core engineering decision was to split generation into deterministic stages rather than trying to produce everything in a single call.
+
+1. Prompt to story text
+Gemini generates structured story output including title, paragraphs, and moral.
+
+2. Story analysis for consistency
+Gemini analyzes the generated text to produce:
+- A character database with visual and behavioral details.
+- An art style guide with color, lighting, and rendering direction.
+
+3. Paragraph prompt synthesis
+For each paragraph, Gemini creates detailed image prompts grounded in the character database and style guide.
+
+4. Image generation and storage
+Prompts are sent to an image generation service (via Hugging Face Space), and generated assets are stored in Cloudinary.
+
+5. Narration generation
+Story text is converted to audio using Speechify, then uploaded and linked per story.
+
+6. Final assembly and persistence
+Narrato stores the full story package (text + images + audio metadata) and exposes it in user history and public browsing feeds.
+
+## Reliability and UX Decisions
+
+Long AI jobs can fail user trust if the UI appears frozen. I implemented a long-lived request pattern with Server-Sent Events so users can see live stage-by-stage progress while generation is running.
+
+I also used a fallback-friendly platform strategy:
+- Flask backend with modular route and service layers.
+- Cloudinary for external media durability.
+- Shov key-value storage for user and story data.
+- Heroku deployment with long request timeout configuration for streaming workloads.
+
+This made the app feel interactive even when the full generation pipeline took significant time.
+
+## Engineering Challenges
+
+- Consistency drift across images.
+The character database + style guide stage was introduced specifically to reduce visual drift.
+
+- Multi-provider orchestration.
+Story, image, narration, and storage services each had different latency and failure behavior, so the pipeline had to be tolerant and observable.
+
+- Productizing AI output.
+Moving from generated content to a usable product required authentication, history, and export, not only generation quality.
+
+## Impact
+
+Narrato demonstrated that a single-prompt storytelling product can feel complete and polished when generation quality, orchestration, and user experience are designed together.
+
+## Result
+
+Narrato won **first prize in Shov's Coding Challenge**. The project validated a full-stack approach to AI storytelling where text, image, audio, and UX pipeline design are treated as one integrated product system.

@@ -1,0 +1,94 @@
+---
+title: "LegalEagle - Contract Risk Scanner & Redline Generator"
+publishedAt: "2025-07-10"
+summary: "First place winner at the Abysshub Hackathon. LegalEagle analyzes PDF contracts, scores risk, and generates executive-ready redlined outputs with actionable fixes."
+images:
+  - "/images/projects/project-01/legaleagle.jpg"
+  - "/images/projects/project-01/image-02.jpg"
+team:
+  - name: "Thinh Dinh"
+    role: "Software Engineer"
+    avatar: "/images/thinh-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/th%E1%BB%8Bnh-%C4%91inh-aa8727395"
+github: "https://github.com/zaikaman/LegalEagle"
+link: "https://github.com/zaikaman/LegalEagle"
+---
+
+## Context
+
+Contract review is one of the highest-friction legal workflows: expensive, repetitive, and vulnerable to oversight. Missing one high-risk clause can create real financial and operational exposure.
+
+LegalEagle was built as an AI legal assistant focused on one practical outcome: upload a contract PDF and receive a clear, prioritized, and explainable risk package that legal and business stakeholders can both act on.
+
+## Product Scope
+
+- Automated risk detection for liability, ambiguity, compliance, and asymmetry.
+- Color-coded redline PDF output with contextual annotations.
+- Jurisdiction-aware analysis covering major legal regions.
+- Executive summary pages for non-legal decision makers.
+- Cached contract analysis for repeatability and speed.
+- Multilingual font support for global document handling.
+
+## Architecture and Analysis Pipeline
+
+LegalEagle uses a layered document intelligence architecture:
+
+1. PDF extraction
+- Primary path: PDFPlumber for fast local extraction.
+- Fallback path: Adobe Extract API for complex layouts, tables, and multi-column docs.
+
+2. Clause-level risk analysis
+- GPT-5-nano-based analysis (via configured endpoint) classifies risky clauses.
+- Risks are tagged by severity and category (legal, financial, operational, contractual).
+
+3. Explainability and remediation
+- Each finding includes impact explanation and concrete redline suggestions.
+
+4. Composite scoring
+- Risk score formula uses weighted components:
+  50 percent severity, 30 percent ambiguity, 20 percent compliance.
+- This creates a transparent ranking model rather than opaque AI output.
+
+5. Output rendering
+- Redline contract PDF with high/medium/low highlight colors.
+- Executive pages that summarize portfolio-level risk quickly.
+
+## Executive Reporting Design
+
+I focused heavily on executive readability, not only legal depth. The generated report includes:
+
+- Risk Overview Heatmap.
+Visual matrix showing risk intensity across categories and severity bands.
+
+- Top 5 Risks and Action Items.
+Prioritized issues with confidence and recommended next steps.
+
+- Scoring Methodology Page.
+Explains the scoring formula so teams can trust and audit the result.
+
+This design makes the output usable in legal review, procurement, and leadership discussions.
+
+## Jurisdiction and Internationalization
+
+LegalEagle includes jurisdiction-aware logic for 15+ regions (including US, UK, EU, Germany, France, Singapore, Australia, India, and others). This helps avoid one-size-fits-all legal reasoning.
+
+To support multilingual documents and generated summaries, I bundled Unicode-focused fonts (including CJK, Arabic, Hebrew, and Indic coverage) so output quality would hold in cross-border use cases.
+
+## Engineering Challenges
+
+- Document variability.
+Contracts vary widely in formatting quality; hybrid extraction was required for production robustness.
+
+- Explainable AI output.
+Legal users need traceable reasoning, so I avoided black-box style summaries and leaned into explicit scoring and annotation structure.
+
+- Runtime constraints.
+The system was built to operate in constrained hackathon widget compute environments while still producing rich PDF outputs.
+
+## Impact
+
+LegalEagle reduced contract triage friction by translating dense legal text into a structured decision artifact: where the risks are, how severe they are, and what to do next.
+
+## Result
+
+LegalEagle won **first place in the Abysshub Hackathon**. It proved that legal AI can be both technically advanced and operationally useful when explainability, jurisdiction context, and report design are treated as first-class requirements.

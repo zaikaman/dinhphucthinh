@@ -1,0 +1,95 @@
+---
+title: "CodeForgeAI - Multi-Agent Development Platform"
+publishedAt: "2025-10-01"
+summary: "First place winner in the Agents Applications Track of the ADK-TS Hackathon. CodeForgeAI delivers a production-grade multi-agent developer platform with GitHub MCP automation."
+images:
+  - "/images/projects/project-01/codeforge.jpg"
+  - "/images/projects/project-01/image-03.jpg"
+team:
+  - name: "Thinh Dinh"
+    role: "Software Engineer"
+    avatar: "/images/thinh-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/th%E1%BB%8Bnh-%C4%91inh-aa8727395"
+github: "https://github.com/zaikaman/CodeForgeAI"
+link: "https://github.com/zaikaman/CodeForgeAI"
+---
+
+## Context
+
+Code generation alone is not enough for real developer productivity. Teams need orchestration across implementation, review, GitHub operations, testing, and communication channels.
+
+CodeForgeAI was designed as a virtual multi-agent engineering team that can receive natural language requests and execute full development workflows, not just return snippets.
+
+## Product Scope
+
+- 10+ specialized agents for coding, review, testing, docs, and GitHub operations.
+- Intelligent orchestration and routing through a central chat/orchestrator layer.
+- Multi-channel interfaces: web terminal, Telegram bot, voice interactions, and background job flow.
+- Real-time preview and iterative workflow support for generated projects.
+- AI image generation integration for web/product asset workflows.
+
+## Agent and Workflow Architecture
+
+CodeForgeAI uses specialist agents with explicit responsibilities:
+
+- Generation agents.
+Simple and complex coding agents for different project scopes and technology demands.
+
+- Quality agents.
+Security, bug-hunting, performance, and QA agents for multi-angle review.
+
+- Delivery/support agents.
+Testing, documentation, and GitHub-focused execution paths.
+
+The orchestrator routes tasks by intent and complexity, then chains outputs through deterministic workflows so users can iterate naturally instead of micromanaging tools.
+
+## GitHub MCP Expansion
+
+A major component was the GitHub MCP server integration, built as a serious automation layer rather than a demo utility.
+
+- 40+ GitHub tools covering repository, issue, pull request, and file workflows.
+- AI-assisted PR descriptions and code analysis support.
+- Prebuilt autonomous workflows for repeatable repo automation tasks.
+- Production concerns such as rate handling, error behavior, and operational documentation.
+
+This allowed agents to perform meaningful repository operations directly from conversational prompts.
+
+## Multi-Channel Developer Experience
+
+I intentionally designed CodeForgeAI to work where developers already operate:
+
+- Web terminal for interactive generation, editing, and preview.
+- Telegram bot access for async/mobile workflows.
+- Voice command path for hands-free interactions.
+- Background jobs for long-running tasks with status tracking.
+
+The outcome is a platform that supports both focused sessions and interrupt-driven workflows.
+
+## Platform Engineering Decisions
+
+- Multi-model strategy.
+Different agent types can run on different model profiles to balance quality, speed, and cost.
+
+- Extensibility first.
+Agent and tool boundaries were structured so new specialist roles can be added without rewriting orchestration.
+
+- End-to-end usefulness.
+Code generation was connected to review and deployment pathways so output is actionable.
+
+## ADK-TS Contributions
+
+Beyond product development, I contributed improvements back to ADK-TS integration paths, including:
+
+- Context variable injection handling improvements for complex prompt templates.
+- GPT-5 model support integration.
+- Custom OpenAI-compatible base URL support for flexible deployment environments.
+
+These changes improved reliability for broader ADK-TS-based agent systems.
+
+## Impact
+
+CodeForgeAI demonstrated that multi-agent systems can move from novelty to practical engineering utility when orchestration, tooling depth, and developer UX are designed together.
+
+## Result
+
+CodeForgeAI won **first place in the Agents Applications Track of the ADK-TS Hackathon** and validated a production-oriented approach to AI-assisted software development.

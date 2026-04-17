@@ -1,0 +1,95 @@
+---
+title: "KaspaClash - Blockchain-Powered PvP Fighting Game"
+publishedAt: "2026-03-01"
+summary: "Kaspathon winner for 3rd place and Best Beginner Project. KaspaClash is a blockchain-native PvP fighting game with verified on-chain actions, live betting, and progression systems."
+images:
+  - "/images/projects/project-01/kaspaclash.jpg"
+  - "/images/projects/project-01/cover-02.jpg"
+team:
+  - name: "Thinh Dinh"
+    role: "Software Engineer"
+    avatar: "/images/thinh-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/th%E1%BB%8Bnh-%C4%91inh-aa8727395"
+github: "https://github.com/zaikaman/KaspaClash"
+link: "https://github.com/zaikaman/KaspaClash"
+---
+
+## Context
+
+Many blockchain games hide latency with optimistic UI shortcuts, which weakens trust in the idea of truly on-chain gameplay.
+
+KaspaClash was built to prove a different point: with Kaspa's speed, gameplay actions can be verified on-chain in near real time while still feeling competitive and responsive.
+
+## Product Scope
+
+- Competitive 1v1 turn-based combat with strategic move and card systems.
+- Kasware wallet integration with testnet/mainnet network-aware behavior.
+- Real-time matchmaking, spectators, and live betting.
+- Persistent progression with battle pass, quests, achievements, and prestige.
+- Cosmetic economy with on-chain inscription-oriented purchase flow.
+- Replay/export and social features for engagement loops.
+
+## Core Technical Idea
+
+The defining architectural choice was requiring real confirmation-aware gameplay flow:
+
+- Moves are tied to blockchain transaction pathways.
+- The game verifies transaction inclusion behavior rather than relying on pure optimistic simulation.
+- Gameplay and blockchain state are coordinated so speed and integrity are both preserved.
+
+This made Kaspa's performance characteristics part of the core user experience, not just a backend detail.
+
+## System Architecture
+
+KaspaClash combines:
+
+- Next.js + React + TypeScript for application and feature surfaces.
+- Phaser for real-time combat rendering and animation.
+- Supabase PostgreSQL + Realtime for synchronization, matchmaking, and state persistence.
+- Kaspa WASM + Kasware wallet integration for blockchain interactions and signature-based auth.
+
+The API layer is separated into domain routes for matchmaking, match lifecycle, betting, bot betting, progression, and treasury operations.
+
+## Gameplay and Economy Design
+
+I designed the game as a full product loop, not a single combat screen.
+
+- Matchmaking and combat.
+ELO-aware queue with smart bot failover to reduce waiting time.
+
+- Strategic depth.
+Character archetypes, counter logic, and Power Surge round modifiers.
+
+- Spectator economy.
+Live PvP and bot-match betting with pool and payout workflows.
+
+- Long-term retention.
+Battle pass tiers, daily quests, achievements, prestige resets, and seasonal progression.
+
+- Cosmetic monetization path.
+Purchase flows connected to treasury logic and NFT-style metadata inscription concepts.
+
+## Blockchain Integration Decisions
+
+- Dual-network support.
+Automatic handling for Kaspa testnet-10 and mainnet contexts.
+
+- Wallet-native onboarding.
+Kasware-based connection and signature authentication to remove separate account friction.
+
+- Treasury and payouts.
+Scheduled distribution logic for ecosystem sustainability and competitive incentives.
+
+## Engineering Challenges
+
+- Balancing game responsiveness with on-chain integrity requirements.
+- Coordinating realtime multiplayer state with blockchain-adjacent transaction events.
+- Building a broad feature surface (combat, betting, progression, treasury) while keeping UX readable.
+
+## Impact
+
+KaspaClash showed that blockchain can be a meaningful gameplay primitive when confirmation-aware design is handled deliberately and paired with strong realtime game architecture.
+
+## Result
+
+KaspaClash won **3rd place and Best Beginner Project in the Kaspathon**, validating the concept of confirmation-aware, blockchain-native competitive gameplay built on Kaspa.
