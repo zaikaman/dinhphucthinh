@@ -1,0 +1,65 @@
+---
+title: "ClashX - Autonomous Trading Bot Platform"
+publishedAt: "2026-04-24"
+summary: "Grand Prize winner and Trading Applications & Bots Track winner at the Pacifica Hackathon. ClashX is a production-grade autonomous trading bot platform built on Pacifica Perpetuals."
+images:
+  - "/images/projects/project-01/clashx.jpg"
+  - "/images/projects/project-01/image-01.jpg"
+team:
+  - name: "Thinh Dinh"
+    role: "Software Engineer"
+    avatar: "/images/thinh-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/th%E1%BB%8Bnh-%C4%91inh-aa8727395"
+github: "https://github.com/zaikaman/ClashX"
+link: "https://github.com/zaikaman/ClashX"
+---
+
+## Context
+
+Most perpetuals users still trade manually, which creates emotional decisions and inconsistent execution.
+
+ClashX was built to shift users from manual trading into bot operations with clear strategy rules, delegated execution, and transparent monitoring on Pacifica Perpetuals.
+
+## Product Scope
+
+- Visual bot builder with graph-based strategy composition.
+- AI copilot that can generate and refine trading strategies from natural language.
+- Runtime engine for live bot execution with risk controls and lifecycle management.
+- Copy trading, bot cloning, and social discovery for strategy distribution.
+- Portfolio baskets with allocation and rebalancing logic.
+- Backtesting lab for historical validation before live deployment.
+- Telegram integration for alerts and portfolio visibility.
+
+## Core Architecture
+
+ClashX was implemented as a full-stack platform:
+
+- Next.js + TypeScript frontend for builder, dashboards, leaderboard, and marketplace UI.
+- FastAPI backend for bot management, strategy services, execution orchestration, and APIs.
+- Background workers for runtime execution, copy trading, snapshots, portfolio allocation, and backtesting.
+- Supabase PostgreSQL for strategy definitions, execution events, metrics, and social data.
+- Pacifica REST and WebSocket integrations for market data and order workflows.
+
+## Key Engineering Decisions
+
+- Delegated wallet authorization.
+Execution rights are delegated without custody so users keep control of funds while enabling automation.
+
+- Validation-first strategy system.
+The builder validates graph structure, required risk settings, and action paths before deployment.
+
+- Reliability under realtime load.
+Workers include idempotent execution claims and detailed event logs to prevent duplicate orders and improve auditability.
+
+- Product depth over demo polish.
+The scope included marketplace, trust scoring, and portfolio automation to deliver an operational product, not a single feature prototype.
+
+## Hackathon Impact
+
+ClashX combined four track dimensions in one platform: trading automation, analytics, social mechanics, and DeFi composability.
+
+The project proved that Pacifica infrastructure can support a full autonomous trading product with both beginner-friendly UX and advanced strategy controls.
+
+## Result
+
+ClashX won the **Grand Prize (Best Overall)** and the **Trading Applications & Bots Track Prize** at the Pacifica Hackathon, becoming my 6th hackathon win.

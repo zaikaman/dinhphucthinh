@@ -62,14 +62,14 @@ const home: Home = {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">CodeForgeAI</strong>{" "}
+        <strong className="ml-4">ClashX</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          ADK-TS Hackathon winner
+          Pacifica Hackathon Grand + Track winner
         </Text>
       </Row>
     ),
-    href: "/work/codeforgeai-multi-agent-dev-platform",
+    href: "/work/clashx-autonomous-trading-bot-platform",
   },
   subline: (
     <>
@@ -114,6 +114,26 @@ const about: About = {
     display: true,
     title: "Projects & Wins",
     experiences: [
+      {
+        company: "ClashX",
+        timeframe: "2026",
+        role: "Grand Prize Winner + Trading Applications & Bots Track Winner - Pacifica Hackathon",
+        achievements: [
+          <>
+            Built an autonomous trading bot platform on Pacifica Perpetuals with delegated wallet
+            execution, visual strategy composition, and AI-assisted bot generation.
+          </>,
+          <>
+            Shipped copy trading, portfolio allocation, backtesting, marketplace discovery, and
+            live performance analytics into one production-grade workflow.
+          </>,
+          <>
+            Delivered a full-stack system across Next.js frontend, FastAPI services, background
+            workers, and Pacifica API integrations to move from demo concept to deployable product.
+          </>,
+        ],
+        images: [],
+      },
       {
         company: "Narrato",
         timeframe: "2025",

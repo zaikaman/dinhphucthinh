@@ -1,8 +1,5 @@
 %-------------------------
 % Resume in Latex
-% Author : Harshibar
-% Based off of: https://github.com/jakeryang/resume
-% License : MIT
 %------------------------
 
 \documentclass[letterpaper,11pt]{article}
@@ -18,16 +15,13 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-% only for pdflatex
-% \input{glyphtounicode}
-
-% fontawesome
 \usepackage{fontawesome5}
-
-% fixed width
 \usepackage[scale=0.90,lf]{FiraMono}
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\usepackage{tgheros}
+\usepackage[T1]{fontenc}
 
-% light-grey
 \definecolor{light-grey}{gray}{0.83}
 \definecolor{dark-grey}{gray}{0.3}
 \definecolor{text-grey}{gray}{.08}
@@ -35,9 +29,6 @@
 \DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
 \DeclareTextFontCommand{\texteb}{\ebseries}
 
-% custom underilne
-\usepackage{contour}
-\usepackage[normalem]{ulem}
 \renewcommand{\ULdepth}{1.8pt}
 \contourlength{0.8pt}
 \newcommand{\myuline}[1]{%
@@ -45,21 +36,14 @@
   \llap{\contour{white}{#1}}%
 }
 
-
-% custom font: helvetica-style
-\usepackage{tgheros}
-\renewcommand*\familydefault{\sfdefault} 
-%% Only if the base font of the document is to be sans serif
-\usepackage[T1]{fontenc}
-
+\renewcommand*\familydefault{\sfdefault}
 
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{0in}
 \addtolength{\textwidth}{1in}
@@ -67,39 +51,23 @@
 \addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
-
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting - serif
-% \titleformat{\section}{
-%   \vspace{2pt} \scshape \raggedright\large % header section
-% }{}{0em}{}[\color{black} \titlerule \vspace{-5pt}]
-
-% TODO EBSERIES
-% sans serif sections
-\titleformat {\section}{
-    \bfseries \vspace{2pt} \raggedright \large % header section
+\titleformat{\section}{
+    \bfseries \vspace{2pt} \raggedright \large
 }{}{0em}{}[\color{light-grey} {\titlerule[2pt]} \vspace{-4pt}]
 
-% only for pdflatex
-% Ensure that generate pdf is machine readable/ATS parsable
-% \pdfgentounicode=1
-
-%-------------------------
-% Custom commands
 \newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-1pt}}
-  }
+  \item\small{{#1 \vspace{-1pt}}}
 }
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\ % top row of resume entry
-      \textit{#3} & {\color{dark-grey} \small #4}\\ % second row of resume entry
+      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\
+      \textit{#3} & {\color{dark-grey} \small #4}\\
     \end{tabular*}\vspace{-4pt}
 }
 
@@ -121,130 +89,127 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-% CHANGED default leftmargin  0.15 in
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=1.2em]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
 
 \color{text-grey}
-
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \begin{document}
 
 %----------HEADING----------
 \begin{center}
   {\Huge \bfseries Thinh Dinh} \\ \vspace{5pt}
+  {\Large Software Engineer} \\ \vspace{5pt}
     \small \faEnvelope \hspace{2pt} \href{mailto:zaikaman123@gmail.com}{\myuline{zaikaman123@gmail.com}} \hspace{1pt} $|$
-    \hspace{1pt} \faMapMarker* \hspace{2pt}Ho Chi Minh City, Vietnam \\
+    \hspace{1pt} \faMapMarker* \hspace{2pt} Ho Chi Minh City, Vietnam \\
     \small \faGithub \hspace{2pt} \href{https://github.com/zaikaman}{\myuline{github.com/zaikaman}} \hspace{1pt} $|$
     \hspace{1pt} \faLinkedin \hspace{2pt} \href{https://www.linkedin.com/in/th%E1%BB%8Bnh-%C4%91inh-aa8727395/}{\myuline{linkedin.com/in/thinh-dinh}} \hspace{1pt} $|$
-    \hspace{1pt} \faTwitter \hspace{2pt} \href{https://x.com/ThinhDinh1706}{\myuline{x.com/ThinhDinh1706}} \hspace{1pt} $|$
-    \hspace{1pt} \faGlobe \hspace{2pt} \href{https://zaikaman.github.io}{\myuline{zaikaman.github.io}}
-    \\ \vspace{-3pt}
+    \hspace{1pt} \faTwitter \hspace{2pt} \href{https://x.com/ThinhDinh1706}{\myuline{x.com/ThinhDinh1706}}
 \end{center}
 
 %-----------EXPERIENCE-----------
 \section{EXPERIENCE}
-  \resumeSubHeadingListStart
+\resumeSubHeadingListStart
 
-    \resumeSubheading
-      {Freelance Full-Stack Engineer (Client Project)}{2025 -- Present}
-      {AutoEdu - Learning Management System}{Remote}
-      \resumeItemListStart
-        \resumeItem{Designed and built a comprehensive LMS using \textbf{Next.js 14}, \textbf{TypeScript}, and \textbf{Supabase}, with production-focused architecture and role-based access control.}
-        \resumeItem{Implemented end-to-end workflows for \textbf{3 roles} (student, teacher, admin): dashboards, class and lecture management, assignments, exams, grading, and progress tracking.}
-        \resumeItem{Modeled core academic data across \textbf{10+ relational entities} (profiles, classes, enrollments, lectures, assignments, exams, submissions) and integrated secure authentication/authorization flows.}
-        \resumeItem{Built backend/API capabilities for enrollment operations, bulk user and student import, service health monitoring, and file/document handling for course content workflows.}
-        \resumeItem{Delivered responsive UI with reusable components, schema-based form validation, and rich editor tooling (TipTap, TinyMCE, Monaco) to support both content-heavy and technical courses.}
-      \resumeItemListEnd
+\resumeSubheading
+  {Freelance Full-Stack Engineer}{2025 -- Present}
+  {AutoEdu -- Learning Management System}{Remote}
+  \resumeItemListStart
+    \resumeItem{Designed and built a full-stack learning management system using \textbf{Next.js 14}, \textbf{TypeScript}, and \textbf{Supabase}, supporting real academic workflows for students currently using the platform at \textbf{UTE University}.}
+    \resumeItem{Implemented end-to-end workflows for \textbf{3 user roles} -- student, teacher, and admin -- including dashboards, class and lecture management, assignments, exams, grading, and progress tracking.}
+    \resumeItem{Modeled core academic data across \textbf{10+ relational entities}, including profiles, classes, enrollments, lectures, assignments, exams, and submissions, with secure authentication and role-based access control.}
+    \resumeItem{Built backend and API features for enrollment flows, bulk student import, health monitoring, and file/document handling to support day-to-day academic operations.}
+    \resumeItem{Delivered a responsive interface with reusable components, schema-based validation, and integrated editors including \textbf{TipTap}, \textbf{TinyMCE}, and \textbf{Monaco} for content-heavy and technical course authoring.}
+  \resumeItemListEnd
 
-    \resumeSubheading
-      {Freelance Full-Stack Engineer (Client Project)}{2025 -- Present}
-      {KienVocal - Online Vocal Training Platform (\href{https://kienvocal.site}{\myuline{kienvocal.site}})}{Remote}
-      \resumeItemListStart
-        \resumeItem{Built and launched a production learning platform for vocal instructor \textbf{Dinh Trung Kien} using \textbf{Next.js 15}, \textbf{TypeScript}, \textbf{Tailwind CSS}, and \textbf{Supabase}.}
-        \resumeItem{Implemented end-to-end student flows: account registration/login (email + Google OAuth), protected course access, and structured lesson delivery for basic/intermediate programs.}
-        \resumeItem{Integrated \textbf{PayOS} checkout and webhook processing to validate transactions and automatically create purchase records with course entitlement logic.}
-        \resumeItem{Shipped learning engagement features including a custom \textbf{Vimeo} lesson player (quality controls + trial limits), threaded lesson comments/likes, and a \textbf{Gemini AI} assistant for 24/7 course support.}
-      \resumeItemListEnd
+\resumeSubheading
+  {Freelance Full-Stack Engineer}{2025 -- Present}
+  {KienVocal -- Online Vocal Training Platform (\href{https://kienvocal.site}{\myuline{kienvocal.site}})}{Remote}
+  \resumeItemListStart
+    \resumeItem{Built and launched a production online learning platform for vocal instructor \textbf{Dinh Trung Kien} using \textbf{Next.js 15}, \textbf{TypeScript}, \textbf{Tailwind CSS}, and \textbf{Supabase}.}
+    \resumeItem{Shipped the platform to \textbf{198 users}, processing \textbf{58 orders} and \textbf{22,743,000đ} in revenue through integrated checkout and entitlement flows.}
+    \resumeItem{Implemented end-to-end student journeys including email and Google OAuth sign-in, protected course access, structured lesson delivery, and automated purchase-based course enrollment.}
+    \resumeItem{Integrated \textbf{PayOS} payments and webhook handling to validate transactions, create purchase records, and grant course access reliably after payment completion.}
+    \resumeItem{Built engagement features including a custom \textbf{Vimeo} lesson player with trial limits and quality controls, threaded lesson comments and likes, and a \textbf{Gemini AI} assistant for always-on course support.}
+  \resumeItemListEnd
 
-  \resumeSubHeadingListEnd
+\resumeSubHeadingListEnd
 
 %-----------ACHIEVEMENTS-----------
 \section{HACKATHONS \& ACHIEVEMENTS}
-    \resumeSubHeadingListStart
-      \resumeProjectHeading
-          {\textbf{CodeForgeAI} - ADK-TS Hackathon Winner (1st Place, Agents Applications Track)} {2025}
-          \resumeItemListStart
-            \resumeItem{Built a production-oriented multi-agent developer platform with 10+ specialist agents, intelligent routing, and GitHub MCP automation workflows.}
-          \resumeItemListEnd
+\resumeSubHeadingListStart
 
-        \resumeProjectHeading
-          {\textbf{RogueAgent} - Agent Arena Hackathon Winner (1st Place)}{2025}
-          \resumeItemListStart
-            \resumeItem{Developed an autonomous multi-agent crypto intelligence pipeline for market scanning, signal scoring, tiered publishing, and execution-ready workflows.}
-          \resumeItemListEnd
+\resumeProjectHeading
+  {\textbf{ClashX} -- Pacifica Hackathon Winner (Grand Prize + Trading Applications \& Bots Track Winner)}{2026}
+  \resumeItemListStart
+    \resumeItem{Built an autonomous trading bot platform on Pacifica Perpetuals with a visual strategy builder, AI copilot, copy trading, portfolio allocation, and backtesting workflows.}
+  \resumeItemListEnd
 
-      \resumeProjectHeading
-         {\textbf{LegalEagle} - Abysshub Hackathon Winner (1st Place)}{2025}
-          \resumeItemListStart
-            \resumeItem{Created a contract risk scanner that analyzes PDF clauses, ranks risk severity, and outputs explainable color-coded redline reports for faster legal review.}
-          \resumeItemListEnd
+\resumeProjectHeading
+  {\textbf{CodeForgeAI} -- ADK-TS Hackathon Winner (1st Place, Agents Applications Track)}{2025}
+  \resumeItemListStart
+    \resumeItem{Built a multi-agent developer platform with \textbf{10+ specialized agents}, intelligent routing, and GitHub MCP automation workflows for production-oriented software tasks.}
+  \resumeItemListEnd
 
-      \resumeProjectHeading
-         {\textbf{Narrato} - Shov's Coding Challenge Winner (1st Prize)}{2025}
-          \resumeItemListStart
-            \resumeItem{Built a prompt-to-story pipeline that generates structured text, scene-consistent images, narration, and exportable story outputs in one product flow.}
-          \resumeItemListEnd
+\resumeProjectHeading
+  {\textbf{RogueAgent} -- Agent Arena Hackathon Winner (1st Place)}{2025}
+  \resumeItemListStart
+    \resumeItem{Developed an autonomous multi-agent crypto intelligence pipeline for market scanning, signal scoring, tiered publishing, and execution-oriented workflows.}
+  \resumeItemListEnd
 
-      \resumeProjectHeading
-         {\textbf{KaspaClash} - Kaspathon Winner (3rd Place + Best Beginner Project)}{2026}
-          \resumeItemListStart
-            \resumeItem{Built a blockchain-powered PvP game with wallet integration, real-time matchmaking, live betting, and confirmation-aware gameplay mechanics.}
-          \resumeItemListEnd
-          
-    \resumeSubHeadingListEnd
+\resumeProjectHeading
+  {\textbf{LegalEagle} -- Abysshub Hackathon Winner (1st Place)}{2025}
+  \resumeItemListStart
+    \resumeItem{Created a contract risk scanner that analyzes PDF clauses, scores risk severity, and generates explainable color-coded redline reports for legal review.}
+  \resumeItemListEnd
 
+\resumeProjectHeading
+  {\textbf{Narrato} -- Shov's Coding Challenge Winner (1st Prize)}{2025}
+  \resumeItemListStart
+    \resumeItem{Built a prompt-to-story pipeline that generates structured writing, scene-consistent images, narration, and exportable story outputs in one workflow.}
+  \resumeItemListEnd
 
+\resumeProjectHeading
+  {\textbf{KaspaClash} -- Kaspathon Winner (3rd Place + Best Beginner Project)}{2026}
+  \resumeItemListStart
+    \resumeItem{Built a blockchain-powered PvP game with wallet integration, real-time matchmaking, live betting, and confirmation-aware gameplay mechanics.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
 
 %-----------EDUCATION-----------
-\section {EDUCATION}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Saigon University}{Expected Graduation: 2027}
-      {Software Engineering}{Ho Chi Minh City, Vietnam}
-      \resumeItemListStart
-        \resumeItem{Focus: full-stack product engineering, AI systems, and practical software delivery.}
-        \resumeItemListEnd
-  \resumeSubHeadingListEnd
+\section{EDUCATION}
+\resumeSubHeadingListStart
+\resumeSubheading
+  {Saigon University}{Expected Graduation: 2027}
+  {B.E. in Software Engineering}{Ho Chi Minh City, Vietnam}
+  \resumeItemListStart
+    \resumeItem{Focus: full-stack product engineering, AI systems, and practical software delivery.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
 
 %-----------CERTIFICATIONS-----------
 \section{CERTIFICATIONS}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {TOEIC Listening \& Reading}{Sep 2022}
-      {Listening: 495, Reading: 465}{ETS}
-    \resumeSubheading
-      {TOEIC Speaking \& Writing}{Nov 2022}
-      {Speaking: 160, Writing: 200}{ETS}
-  \resumeSubHeadingListEnd
+\resumeSubHeadingListStart
+\resumeSubheading
+  {TOEIC Listening \& Reading -- 960/990}{Sep 2022}
+  {Listening: 495, Reading: 465}{ETS}
+\resumeSubheading
+  {TOEIC Speaking \& Writing -- 360/400}{Nov 2022}
+  {Speaking: 160, Writing: 200}{ETS}
+\resumeSubHeadingListEnd
 
-%
-%-----------PROGRAMMING SKILLS-----------
+%-----------SKILLS-----------
 \section{SKILLS}
- \begin{itemize}[leftmargin=0in, label={}]
-    \small{\item{
-   {\bfseries Languages} {: TypeScript, JavaScript, SQL, Python}\\
-   {\bfseries Frameworks} {: Next.js 14, React, Tailwind CSS, Supabase}\\
-   {\bfseries Backend \& Data} {: PostgreSQL, REST API, Authentication, RBAC, File Storage}\\
-   {\bfseries Tooling} {: GitHub, Zod, React Hook Form, TipTap, TinyMCE, Monaco Editor, Vercel}
-    }}
- \end{itemize}
+\begin{itemize}[leftmargin=0in, label={}]
+\small{\item{
+{\bfseries Languages}: TypeScript, JavaScript, SQL, Python \\
+{\bfseries Frontend}: Next.js, React, Tailwind CSS \\
+{\bfseries Backend \& Data}: Supabase, PostgreSQL, REST APIs, Authentication, RBAC, File Storage \\
+{\bfseries Tools}: GitHub, Vercel, Zod, React Hook Form, TipTap, TinyMCE, Monaco Editor
+}}
+\end{itemize}
 
-
-%-------------------------------------------
 \end{document}
