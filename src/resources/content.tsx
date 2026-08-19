@@ -115,6 +115,26 @@ const about: About = {
     title: "Projects & Wins",
     experiences: [
       {
+        company: "ChronicleAI",
+        timeframe: "2026",
+        role: "2nd Place Winner - KeeperHub The Last Mile Hackathon",
+        achievements: [
+          <>
+            Built an autonomous onchain AI research desk that monetizes intelligence through Chronicle
+            Pass subscriptions and KeeperHub Marketplace workflows over x402 and MPP protocols.
+          </>,
+          <>
+            Designed a policy-gated treasury execution engine with deterministic preflight safety
+            checks, yield rebalancing, and Telegram alert delivery.
+          </>,
+          <>
+            Executed over 3,000+ unique verified onchain transactions through KeeperHub infrastructure
+            with smart gas pricing, private mempool routing, and public cryptographic audit trails.
+          </>,
+        ],
+        images: [],
+      },
+      {
         company: "ClashX",
         timeframe: "2026",
         role: "Grand Prize Winner + Trading Applications & Bots Track Winner - Pacifica Hackathon",

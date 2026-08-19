@@ -142,6 +142,12 @@
 \resumeSubHeadingListStart
 
 \resumeProjectHeading
+  {\textbf{ChronicleAI} -- KeeperHub The Last Mile Hackathon Winner (2nd Place)}{2026}
+  \resumeItemListStart
+    \resumeItem{Engineered an autonomous AI research desk that monetizes onchain intelligence and executes policy-gated transactions via KeeperHub, processing over \textbf{3,000+ verified onchain transactions}.}
+  \resumeItemListEnd
+
+\resumeProjectHeading
   {\textbf{ClashX} -- Pacifica Hackathon Winner (Grand Prize + Trading Applications \& Bots Track Winner)}{2026}
   \resumeItemListStart
     \resumeItem{Built an autonomous trading bot platform on Pacifica Perpetuals with a visual strategy builder, AI copilot, copy trading, portfolio allocation, and backtesting workflows.}

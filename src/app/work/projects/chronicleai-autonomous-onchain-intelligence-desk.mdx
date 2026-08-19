@@ -1,0 +1,65 @@
+---
+title: "ChronicleAI - Autonomous Onchain Intelligence Desk"
+publishedAt: "2026-08-20"
+summary: "2nd Place Winner at the KeeperHub 'The Last Mile' Hackathon. ChronicleAI is an autonomous onchain AI research desk that monetizes intelligence, manages treasury actions with policy gates, and executes verified onchain transactions at scale via KeeperHub."
+images:
+  - "/images/projects/project-01/chronicleai.jpg"
+  - "/images/projects/project-01/image-01.jpg"
+team:
+  - name: "Thinh Dinh"
+    role: "Software Engineer"
+    avatar: "/images/thinh-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/th%E1%BB%8Bnh-%C4%91inh-aa8727395"
+github: "https://github.com/zaikaman/ChronicleAI"
+link: "https://github.com/zaikaman/ChronicleAI"
+---
+
+## Context
+
+Most AI agent hackathons reward reasoning: an agent that decides something clever in a sandbox. The harder problem is what happens next—the "last mile" between an agent's decision and a reliable transaction executed onchain. Agents hit severe roadblocks when moving real value: gas spikes, MEV frontrunning, dropped transactions, non-deterministic calldata, and a total lack of observability.
+
+ChronicleAI was engineered to solve this last mile. Rather than building another toy trading bot or isolated prompt interface, ChronicleAI is an autonomous onchain AI research desk that monetizes market intelligence through subscriptions and micro-fees, funnels that revenue into a policy-gated treasury desk, and executes real, guaranteed onchain transactions through KeeperHub infrastructure.
+
+## The Core Loop: Watch → Earn → Act → Prove
+
+ChronicleAI turns onchain intelligence into a sustainable, closed-loop business model:
+
+1. **Watch**: Continuously tracks critical onchain activity (large swaps, liquidations, yield spreads, smart contract events) across Ethereum Mainnet and Sepolia.
+2. **Earn**: Monetizes research via **Chronicle Pass** ($4.99/month USDC subscriptions) and listed KeeperHub Marketplace Watch workflows (0.05 USDC per call via x402/MPP).
+3. **Act**: Funnels subscription revenue into an autonomous treasury desk that enforces strict preflight simulations and deterministic risk safety rules before capital is deployed.
+4. **Prove**: KeeperHub executes approved onchain transactions with smart gas estimation and private routing, while ChronicleAI publishes immutable registry receipts, hashes, and public audit logs.
+
+## Product Scope & Surfaces
+
+- **Public Alerts Radar (`/alerts`)**: A real-time unified monitoring feed separating source chain events (Ethereum Mainnet) from publication and desk execution triggers (Ethereum Sepolia).
+- **Targeted Watch Service (`/watch`)**: Paid bespoke monitoring for human users and AI agents. Users register targets to receive instant Telegram notifications (`@chronicleai_bot`) and AI-generated onchain intelligence summaries.
+- **Chronicle Pass Subscription (`/subscription`)**: Wallet-authenticated, signed-message session flow granting access to deep-dive research archives and premium digest delivery.
+- **Chronicle Desk & Risk Gating (`/desk`)**: Treasury monitoring, yield rebalancing proposals, hard safety policies, and preflight transaction simulations.
+- **Live Activity & Audit Stream (`/activity`)**: Complete visibility into KeeperHub execution logs, run IDs, routing metadata, gas metrics, and independently verifiable onchain transaction receipts.
+
+## System Architecture & The KeeperHub Stack
+
+ChronicleAI is structured as a monorepo combining modern web frontend, agent orchestration, background ingestion workers, and KeeperHub onchain execution:
+
+- **Frontend & App Surfaces**: Next.js 15, React 19, TypeScript 5.8, Tailwind CSS, and Viem for wallet interactions and signature-based authentication.
+- **Agent Framework & Reasoning**: LangChainJS pipelines for document synthesis, onchain event interpretation, and report generation.
+- **KeeperHub Execution Layer**: Integrates KeeperHub MCP server, CLI, and custom workflows for private mempool routing, exponential gas backoff, and execution guarantees.
+- **Payment Protocols**: Dual-protocol payments supporting **x402** on Base Mainnet for web browsers and **MPP (Machine Payment Protocol)** for autonomous AI agents.
+- **Data & Ingestion Engine**: Supabase PostgreSQL with real-time subscriptions, state persistence, and event triggers.
+
+## Battle-Tested Scale: 3,000+ Verified Transactions
+
+Unlike projects that rely on mockups or single-run demos, ChronicleAI is a battle-tested autonomous production system. During testing and hackathon judging, the platform executed over **3,000+ unique verified transactions through KeeperHub**—including automated market alerts, yield rebalances, registry proof publications, trade tickets, and sponsored intelligence digests.
+
+Every single execution is publicly auditable and verified onchain with corresponding transaction receipts and KeeperHub execution trails.
+
+## Key Engineering Decisions
+
+- **Source vs Execution Chain Decoupling**: Market intelligence is observed on Ethereum Mainnet (primary liquidity source) while publication, registry proofs, and desk actions settle on Sepolia and Base, clearly labeled to prevent user confusion.
+- **Hard Policy & Preflight Safety Gates**: LLMs are never permitted to broadcast arbitrary calldata directly. Every proposed transaction must pass deterministic mathematical limits, APY variance checks, slippage tolerances, and contract allowlists before dispatch.
+- **Wallet-Authenticated Subscription Auth**: Session authentication uses EIP-712 / personal signed message challenges (`POST /subscriptions/auth/challenge` → `/verify`) storing HttpOnly tokens with per-request entitlement checks.
+- **Enterprise-Grade Testing**: Built with over 1,200+ passing unit, integration, and E2E test cases across Turbo pipelines to ensure resilience in volatile market conditions.
+
+## Result
+
+ChronicleAI won **2nd Place ($1,200 Grand Prize)** in the global **KeeperHub "The Last Mile" Hackathon**, recognized for demonstrating a complete, battle-tested autonomous business loop that bridges the gap between AI reasoning and verifiable onchain transaction execution.
